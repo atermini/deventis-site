@@ -2,997 +2,1901 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<title>Deventis — Studio di prodotto · Treviso</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Deventis — studio di prodotto a Treviso. Disegniamo e sviluppiamo piattaforme custom, app mobile e integrazioni AI per fondatori e team che vogliono fare le cose come si deve.">
-<meta name="theme-color" content="#171612">
-<meta property="og:title" content="Deventis — Studio di prodotto · Treviso">
-<meta property="og:description" content="Diamo forma a ciò che vuoi costruire. Piattaforme custom, app mobile e integrazioni AI.">
+<title>Deventis — Il tuo alleato nell'era degli AI Agents</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Deventis affianca le aziende nell'adozione degli AI Agents: agenti su misura, AI Academy, customer agent, siti web custom, app mobile e AI integrations. Treviso, Italia.">
+<meta name="theme-color" content="#060606">
+<meta property="og:title" content="Deventis — Il tuo alleato nell'era degli AI Agents">
+<meta property="og:description" content="Agenti AI su misura, AI Academy, customer agent, siti web custom, app mobile e AI integrations.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23171612'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' fill='%23ece8df' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23060606'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-weight='600' font-size='20' fill='%23ff5500' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    /* Dark theme — exact values from Direction C's dark palette */
-    --bg:      #171612;
-    --surface: #1f1e19;
-    --ink:     #ece8df;
-    --muted:   #9d9787;
-    --accent:  #8a6f47;
-    --rule:    rgba(255,255,255,.10);
-    --tag:     rgba(255,255,255,.06);
-    --accent-soft: rgba(138,111,71,.20);
-    --hover-soft: rgba(255,255,255,.05);
+/* ============================================================
+   Deventis — single-page site
+   Dark / vermillion direction (porting "Deventis Sito.dc.html")
+   ============================================================ */
 
-    --font-title: 'Newsreader', 'EB Garamond', Georgia, serif;
-    --font-body:  'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono:  'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+:root {
+  --bg: #060606;
+  --ink: #f5f1ec;
+  --accent: #ff5500;
+  --panel: rgba(18, 18, 20, 0.5);
+  --panel-solid: rgba(18, 18, 20, 0.55);
+  --hair: rgba(245, 241, 236, 0.1);
+  --hair-strong: rgba(245, 241, 236, 0.14);
+  --muted: rgba(245, 241, 236, 0.6);
+  --muted-2: rgba(245, 241, 236, 0.65);
+  --sans: 'Archivo', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --pad: 44px;
+}
 
-    --pad-y: 160px;
-    --gap:   96px;
-    --side:  60px;
-    --btn-radius: 8px;
-  }
+* { box-sizing: border-box; }
 
-  *, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
 
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  color: var(--ink);
+  font-family: var(--sans);
+}
 
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+::selection { background: var(--accent); color: var(--bg); }
+::-webkit-scrollbar { width: 0; height: 0; }
+input, textarea { outline: none; }
+input::placeholder, textarea::placeholder { color: rgba(245, 241, 236, 0.35); }
 
-  a { color: inherit; }
+.mono { font-family: var(--mono); }
+.accent { color: var(--accent); }
+.muted { color: var(--muted); }
 
-  /* ── Scroll-driven reveal ───────────────────────────────────────────
-     Content is visible by default (no-JS / SEO safe). When JS + an
-     IntersectionObserver are available, elements ease in as they enter
-     the viewport. Respects prefers-reduced-motion. */
-  @media (prefers-reduced-motion: no-preference) {
-    .js .rv {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .8s ease, transform .8s ease;
-      transition-delay: var(--rv-delay, 0s);
-      will-change: opacity, transform;
-    }
-    .js .rv.is-in {
-      opacity: 1;
-      transform: none;
-    }
-  }
-  .rv-2 { --rv-delay: .06s; }
-  .rv-3 { --rv-delay: .12s; }
-  .rv-4 { --rv-delay: .18s; }
+/* ---------- Stage / background layers ---------- */
+.stage {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  overflow: hidden;
+  cursor: none;
+}
 
-  /* ── Header / nav ───────────────────────────────────────────────── */
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 18px var(--side);
-    border-bottom: 1px solid var(--rule);
-    background: color-mix(in srgb, var(--bg) 93%, transparent);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    font-family: var(--font-mono);
-  }
+.bg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-decoration: none;
-    color: var(--ink);
-  }
-  .brand svg { display: block; width: 104px; height: auto; color: currentColor; }
-  .brand .stamp { font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-repeat: repeat;
+}
 
-  .nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    font-size: 12.5px;
-    color: var(--muted);
-    letter-spacing: .02em;
-  }
-  .nav a.nav-link { text-decoration: none; color: inherit; transition: color .2s ease; }
-  .nav a.nav-link:hover { color: var(--ink); }
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 120% 90% at 50% 40%, transparent 50%, rgba(6, 6, 6, 0.9) 100%);
+}
 
-  .lang-toggle {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .lang-toggle button {
-    padding: 4px 8px;
-    font-family: var(--font-body);
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    color: var(--muted);
-    font-weight: 400;
-  }
-  .lang-toggle button[aria-pressed="true"] { color: var(--ink); font-weight: 600; }
-  .lang-toggle .sep { opacity: .4; }
+/* ---------- Scroll container ---------- */
+.scroll {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  z-index: 5;
+  scrollbar-width: none;
+}
 
-  /* ── Nav dropdown (Prodotti) ────────────────────────────────────── */
-  .nav-item { position: relative; display: inline-flex; }
+.route[hidden] { display: none; }
 
-  .nav-trigger {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    text-decoration: none;
-    transition: color .2s ease;
-  }
-  .nav-item:hover .nav-trigger,
-  .nav-item:focus-within .nav-trigger { color: var(--ink); }
-  .nav-trigger .caret { font-size: 8px; opacity: .75; transition: transform .2s ease; }
-  .nav-item:hover .nav-trigger .caret,
-  .nav-item:focus-within .nav-trigger .caret { transform: rotate(180deg); }
+/* ============================================================
+   HOME
+   ============================================================ */
+.eyebrow {
+  margin: 0 0 26px;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+}
 
-  .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-top: 14px;            /* transparent hover bridge over the gap */
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity .18s ease;
-    z-index: 20;
-  }
-  .nav-item:hover .dropdown,
-  .nav-item:focus-within .dropdown {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 110px var(--pad) 120px;
+  position: relative;
+}
 
-  .dropdown-panel {
-    min-width: 270px;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: var(--btn-radius);
-    padding: 6px;
-    box-shadow: 0 18px 44px rgba(0,0,0,.45);
-    transform: translateY(-6px);
-    transition: transform .18s ease;
-  }
-  .nav-item:hover .dropdown-panel,
-  .nav-item:focus-within .dropdown-panel { transform: translateY(0); }
+.hero-title {
+  margin: 0;
+  font-size: clamp(54px, 7.4vw, 124px);
+  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  max-width: 1100px;
+}
 
-  .dropdown-link {
-    display: grid;
-    gap: 3px;
-    padding: 11px 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    color: inherit;
-    transition: background .15s ease;
-  }
-  a.dropdown-link:hover { background: var(--hover-soft); }
-  .dropdown-link .dl-name {
-    font-family: var(--font-title);
-    font-size: 16px;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-  }
-  .dropdown-link .dl-desc { font-size: 10.5px; color: var(--muted); letter-spacing: .02em; }
-  .dropdown-link.is-soon { cursor: default; }
-  .dropdown-link.is-soon .dl-name { color: var(--muted); font-style: italic; }
-  .dropdown-link.is-soon .dl-desc { color: var(--accent); opacity: .7; }
-  .dropdown-sep { height: 1px; background: var(--rule); margin: 5px 8px; }
+.hero-lead {
+  margin: 30px 0 0;
+  max-width: 480px;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--muted-2);
+}
 
-  /* ── Buttons (data-btn="rounded" default) ───────────────────────── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0;
-    border-radius: var(--btn-radius);
-    font-family: var(--font-mono);
-    cursor: pointer;
-    text-decoration: none;
-    letter-spacing: .02em;
-    transition: opacity .2s ease, transform .2s ease, background .2s ease;
-  }
-  .btn:active { transform: translateY(1px); }
+.hero-ctas { display: flex; gap: 14px; margin-top: 40px; }
 
-  .btn-nav {
-    background: var(--ink);
-    color: var(--bg);
-    border: none;
-    padding: 9px 14px;
-    font-size: 12px;
-  }
-  .btn-nav:hover { opacity: .88; }
+.scroll-hint {
+  position: absolute;
+  right: var(--pad);
+  bottom: var(--pad);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: rgba(245, 241, 236, 0.4);
+}
 
-  .btn-primary {
-    background: var(--ink);
-    color: var(--bg);
-    border: none;
-    padding: 14px 22px;
-    font-size: 13.5px;
-  }
-  .btn-primary:hover { opacity: .88; }
+/* buttons — stessa identità del menu (Archivo, vetro, bordo, raggio 22px) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  border: 1px solid transparent;
+  padding: 15px 28px;
+  border-radius: 14px;
+  font-family: var(--sans);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  transition: background 0.3s, transform 0.3s, border-color 0.3s, color 0.3s;
+}
 
-  .btn-secondary {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--rule);
-    padding: 14px 22px;
-    font-size: 13.5px;
-  }
-  .btn-secondary:hover { background: var(--hover-soft); }
+.btn-solid, .btn-submit {
+  background: var(--panel-solid);
+  border-color: rgba(245, 241, 236, 0.14);
+  color: var(--ink);
+}
+.btn-ghost {
+  background: rgba(18, 18, 20, 0.32);
+  border-color: rgba(245, 241, 236, 0.09);
+  color: rgba(245, 241, 236, 0.85);
+  font-weight: 400;
+}
+.btn-solid:hover, .btn-ghost:hover, .btn-submit:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
 
-  .btn-accent {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 14px 22px;
-    font-size: 13px;
-    letter-spacing: .04em;
-    justify-self: start;
-  }
-  .btn-accent:hover { opacity: .9; }
+/* marquee */
+.marquee-wrap {
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+  overflow: hidden;
+  padding: 22px 0;
+  background: rgba(6, 6, 6, 0.5);
+}
+.marquee {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  will-change: transform;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(245, 241, 236, 0.85);
+}
 
-  /* ── Hero ───────────────────────────────────────────────────────── */
-  .hero { padding: var(--pad-y) var(--side) 80px; }
+/* statement */
+.statement { padding: 170px var(--pad) 150px; max-width: 1180px; }
+.statement-h {
+  margin: 0;
+  font-size: clamp(30px, 3.4vw, 54px);
+  line-height: 1.18;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
 
-  .hero-inner { max-width: 1080px; }
+/* trio (ieri/oggi/domani) */
+.trio {
+  margin: 0 var(--pad);
+  padding: 110px 0;
+  border-top: 1px solid var(--hair);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+}
+.trio-tag { margin: 0 0 20px; font-size: 12px; letter-spacing: 0.25em; }
+.trio h3 { margin: 0 0 16px; font-size: 26px; font-weight: 500; letter-spacing: -0.01em; }
+.trio p.muted { margin: 0; font-size: 15px; line-height: 1.65; font-weight: 300; }
 
-  .hero h1 {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(56px, 7.5vw, 120px);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    margin: 0;
-  }
-  .hero h1 span { display: block; }
-  .line-accent {
-    font-style: italic;
-    color: var(--accent);
-  }
+/* section heads */
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.sec-head h2 { margin: 0; font-size: clamp(34px, 3.6vw, 56px); font-weight: 500; letter-spacing: -0.02em; }
 
-  .hero-lede {
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--muted);
-    margin: 32px 0 0;
-    max-width: 640px;
-    text-wrap: pretty;
-  }
+.link-btn {
+  cursor: none;
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.3s;
+}
+.link-btn:hover { color: var(--accent); }
 
-  .hero-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 40px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+/* services rows (home) */
+.svc-block { padding: 60px var(--pad) 130px; }
+.svc-row {
+  display: grid;
+  grid-template-columns: 90px 1.2fr 1fr 60px;
+  align-items: center;
+  padding: 34px 18px;
+  border-top: 1px solid rgba(245, 241, 236, 0.12);
+  transition: background 0.35s, color 0.35s, padding-left 0.35s;
+  cursor: none;
+}
+.svc-row-last { border-bottom: 1px solid rgba(245, 241, 236, 0.12); }
+.svc-row:hover { background: var(--accent); color: var(--bg); padding-left: 34px; }
+.svc-row:hover .svc-idx, .svc-row:hover .svc-tags { opacity: 0.7; }
+.svc-idx { font-size: 13px; opacity: 0.6; }
+.svc-row h3 { margin: 0; font-size: clamp(24px, 2.4vw, 38px); font-weight: 500; letter-spacing: -0.01em; }
+.svc-tags { font-size: 12px; letter-spacing: 0.1em; opacity: 0.55; }
+.svc-arrow { font-size: 24px; justify-self: end; }
 
-  /* ── Section shared ─────────────────────────────────────────────── */
-  .section {
-    padding: var(--pad-y) var(--side);
-    border-top: 1px solid var(--rule);
-  }
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
+/* products (home) — featured + coming soon */
+.prod-block { padding: 0 var(--pad) 150px; }
 
-  /* ── Services ───────────────────────────────────────────────────── */
-  .services-head { margin-bottom: var(--gap); }
-  .services-head .eyebrow { display: block; margin-bottom: 16px; }
-  .services-head h2 {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(40px, 4.4vw, 72px);
-    line-height: 1.04;
-    letter-spacing: -0.015em;
-    margin: 0;
-  }
-  .services-head p {
-    font-family: var(--font-title);
-    font-style: italic;
-    font-size: 21px;
-    line-height: 1.5;
-    color: var(--muted);
-    margin: 20px 0 0;
-    max-width: 640px;
-    text-wrap: pretty;
-  }
+.prod-intro { margin-bottom: 40px; max-width: 720px; }
+.prod-intro .eyebrow { margin-bottom: 22px; }
+.prod-intro-h { margin: 0 0 18px; font-size: clamp(34px, 3.6vw, 56px); font-weight: 500; letter-spacing: -0.02em; }
+.prod-intro-lead { margin: 0; font-size: 17px; line-height: 1.6; font-weight: 300; color: var(--muted-2); }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
-  }
-  .service {
-    padding: 32px;
-    border: 1px solid var(--rule);
-    border-left: none;
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    gap: 24px;
-    min-height: 480px;
-    background: transparent;
-  }
-  .service:first-child { border-left: 1px solid var(--rule); }
-  .service.is-featured { background: var(--surface); }
+/* featured product (NovaItera) */
+.product-featured {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 56px;
+  padding: 46px 50px;
+  border: 1px solid var(--hair-strong);
+  border-radius: 18px;
+  background: rgba(10, 10, 10, 0.6);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.35s, transform 0.35s;
+  cursor: none;
+}
+.product-featured:hover { border-color: rgba(255, 85, 0, 0.7); transform: translateY(-4px); }
+.product-featured:hover .pf-go { color: var(--accent); }
 
-  .service-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .service-head .idx {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .service-head .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-soft);
-  }
+.pf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.55);
+  animation: dotPulse 2.4s ease-out infinite;
+}
+@keyframes dotPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.5); }
+  70% { box-shadow: 0 0 0 7px rgba(255, 85, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 85, 0, 0); }
+}
+.pf-name { margin: 26px 0 0; font-size: clamp(40px, 4.4vw, 64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+.pf-tagline { margin: 14px 0 0; font-size: 19px; font-weight: 300; font-style: italic; color: rgba(245, 241, 236, 0.85); }
+.pf-body { margin: 24px 0 0; font-size: 15.5px; line-height: 1.65; font-weight: 300; color: var(--muted); max-width: 560px; }
+.pf-go { display: inline-block; margin-top: 30px; font-size: 13px; letter-spacing: 0.12em; color: var(--ink); transition: color 0.3s; }
 
-  .service h3 {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: 38px;
-    line-height: 1.05;
-    letter-spacing: -0.015em;
-    margin: 0;
-  }
-  .service h3 .lead-word { font-style: italic; }
+.pf-aside { border-left: 1px solid var(--hair); padding-left: 40px; }
+.pf-aside-label { font-size: 12px; letter-spacing: 0.1em; color: rgba(245, 241, 236, 0.4); }
+.pf-bullets { list-style: none; margin: 22px 0 0; padding: 0; }
+.pf-bullets li {
+  position: relative;
+  padding: 13px 0 13px 22px;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(245, 241, 236, 0.82);
+  border-bottom: 1px solid var(--hair);
+}
+.pf-bullets li:last-child { border-bottom: none; }
+.pf-bullets li::before { content: "↳"; position: absolute; left: 0; color: var(--accent); }
 
-  .service .body {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--muted);
-    margin: 0;
-    text-wrap: pretty;
-  }
+/* coming soon products */
+.products-soon { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.product-soon {
+  padding: 38px 40px 34px;
+  border: 1px dashed rgba(245, 241, 236, 0.18);
+  border-radius: 18px;
+  background: rgba(10, 10, 10, 0.35);
+}
+.ps-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
+.ps-idx { font-size: 12px; letter-spacing: 0.15em; color: rgba(245, 241, 236, 0.4); }
+.ps-head .dot { background: rgba(245, 241, 236, 0.35); box-shadow: none; animation: none; }
+.product-soon h3 { margin: 0 0 14px; font-size: 26px; font-weight: 500; letter-spacing: -0.01em; color: rgba(245, 241, 236, 0.92); }
+.ps-body { margin: 0; font-size: 15px; line-height: 1.6; font-weight: 300; }
+.ps-soon { display: inline-block; margin-top: 22px; font-size: 12px; letter-spacing: 0.12em; }
 
-  .service ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 6px;
-    font-size: 13px;
-    font-family: var(--font-mono);
-    color: var(--ink);
-  }
-  .service li { display: flex; gap: 8px; }
-  .service li::before { content: "▸"; color: var(--accent); }
+/* big CTA */
+.big-cta {
+  padding: 150px var(--pad) 170px;
+  text-align: center;
+  border-top: 1px solid var(--hair);
+}
+.cta-line {
+  margin: 0 auto;
+  max-width: 1000px;
+  font-size: clamp(40px, 5.6vw, 92px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  transition: color 0.35s;
+  cursor: none;
+}
+.cta-line:hover { color: var(--accent); }
+.cta-italic { font-weight: 300; font-style: italic; }
+.cta-line-lg { max-width: none; font-size: clamp(44px, 6vw, 100px); }
+.cta-line-italic { max-width: none; font-style: italic; font-size: clamp(44px, 6vw, 100px); }
 
-  /* ── Products ───────────────────────────────────────────────────── */
-  .products-head { margin-bottom: var(--gap); }
-  .products-head .eyebrow { display: block; margin-bottom: 16px; }
-  .products-head h2 {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(40px, 4.4vw, 72px);
-    line-height: 1.04;
-    letter-spacing: -0.015em;
-    margin: 0;
-  }
-  .products-head p {
-    font-family: var(--font-title);
-    font-style: italic;
-    font-size: 21px;
-    line-height: 1.5;
-    color: var(--muted);
-    margin: 20px 0 0;
-    max-width: 640px;
-    text-wrap: pretty;
-  }
+/* ============================================================
+   PAGE HEROES (servizi / prodotti / contatti)
+   ============================================================ */
+.page-hero {
+  min-height: 64vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 110px var(--pad) 80px;
+}
+.page-hero-tall { min-height: 78vh; padding-bottom: 90px; }
+.page-title {
+  margin: 0;
+  font-size: clamp(50px, 6.6vw, 110px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.page-lead {
+  margin: 28px 0 0;
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--muted-2);
+}
 
-  .products-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
-  }
-  .product {
-    padding: 32px;
-    border: 1px solid var(--rule);
-    border-left: none;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    min-height: 380px;
-    background: transparent;
-    text-decoration: none;
-    color: inherit;
-  }
-  .product:first-child { border-left: 1px solid var(--rule); }
-  .product.is-live { background: var(--surface); transition: background .2s ease; }
-  a.product.is-live:hover { background: color-mix(in srgb, var(--surface) 80%, var(--accent-soft)); }
+/* ---------- SERVIZI detail rows ---------- */
+.svc-detail {
+  margin: 0 var(--pad);
+  padding: 90px 0;
+  border-top: 1px solid rgba(245, 241, 236, 0.12);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+}
+.svc-detail-last { padding-bottom: 130px; }
+.svc-detail-head p { margin: 0 0 14px; font-size: 13px; }
+.svc-detail-head h2 { margin: 0; font-size: clamp(34px, 3.4vw, 56px); font-weight: 500; letter-spacing: -0.02em; }
+.quote {
+  margin: 0 0 22px;
+  font-size: clamp(22px, 1.9vw, 30px);
+  line-height: 1.35;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245, 241, 236, 0.9);
+}
+.svc-detail-p { margin: 0 0 34px; font-size: 16px; line-height: 1.65; font-weight: 300; max-width: 560px; }
+.svc-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 28px;
+  font-size: 15px;
+  color: rgba(245, 241, 236, 0.8);
+}
+.svc-list span { border-bottom: 1px solid var(--hair); padding-bottom: 11px; }
 
-  .product-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .product-head .idx {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .product-head .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-soft);
-  }
-  .product.is-soon .idx { color: var(--muted); }
-  .product.is-soon .dot {
-    background: transparent;
-    border: 1px solid var(--muted);
-    box-shadow: none;
-    opacity: .6;
-  }
+/* ============================================================
+   CONTATTI
+   ============================================================ */
+.contact-grid {
+  padding: 70px var(--pad) 140px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 70px;
+  border-top: 1px solid rgba(245, 241, 236, 0.12);
+}
+.contact-form { display: flex; flex-direction: column; gap: 44px; }
+.field-label {
+  margin: 0 0 18px;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: rgba(245, 241, 236, 0.5);
+}
+.field-label-tight { margin-bottom: 4px; }
+.field-group { display: flex; flex-direction: column; gap: 14px; }
 
-  .product h3 {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: 34px;
-    line-height: 1.06;
-    letter-spacing: -0.015em;
-    margin: 0;
-  }
-  .product h3 .lead-word { font-style: italic; }
-  .product.is-soon h3 { color: var(--muted); font-style: italic; }
+.chip-choices { display: flex; flex-wrap: wrap; gap: 10px; }
+.choice { display: inline-flex; cursor: none; }
+.choice input { display: none; }
+.choice span {
+  padding: 12px 22px;
+  border: 1px solid rgba(245, 241, 236, 0.14);
+  border-radius: 14px;
+  background: var(--panel-solid);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.choice:hover span { border-color: var(--accent); color: var(--accent); }
+.choice input:checked + span {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
 
-  .product h3.name {
-    font-size: clamp(40px, 3.4vw, 52px);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .product .tagline {
-    font-family: var(--font-title);
-    font-style: italic;
-    font-size: 19px;
-    line-height: 1.4;
-    color: var(--accent);
-    margin: -10px 0 0;
-    text-wrap: pretty;
-  }
+.field {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(245, 241, 236, 0.2);
+  padding: 14px 2px;
+  font-size: 17px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  transition: border-color 0.3s;
+  cursor: none;
+}
+textarea.field { resize: vertical; }
+.field:focus { border-bottom-color: var(--accent); }
 
-  .product .body {
-    font-size: 14.5px;
-    line-height: 1.6;
-    color: var(--muted);
-    margin: 0;
-    text-wrap: pretty;
-  }
+.form-note { margin: 16px 0 0; font-size: 13px; color: rgba(245, 241, 236, 0.4); }
 
-  .product .meta {
-    margin-top: auto;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: .03em;
-    color: var(--muted);
-  }
-  .product .meta .go { color: var(--ink); }
-  .product .meta .soon { color: var(--accent); opacity: .75; }
-  a.product.is-live:hover .meta .go { color: var(--accent); }
+.contact-aside { display: flex; flex-direction: column; gap: 44px; }
+.aside-label {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: rgba(245, 241, 236, 0.5);
+  font-weight: 400;
+}
+.aside-link {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 400;
+  transition: color 0.3s;
+  cursor: none;
+}
+.aside-link:hover { color: var(--accent); }
+.aside-where { margin: 0; font-size: 17px; font-weight: 300; line-height: 1.6; color: rgba(245, 241, 236, 0.8); }
+.aside-social { display: flex; flex-direction: column; gap: 8px; }
+.aside-social a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+  cursor: none;
+}
+.aside-social a:hover { color: var(--accent); }
 
-  /* ── Contact ────────────────────────────────────────────────────── */
-  .contact .eyebrow { display: block; margin-bottom: 24px; }
-  .contact h2 {
-    font-family: var(--font-title);
-    font-weight: 400;
-    font-size: clamp(48px, 6vw, 96px);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    margin: 0;
-  }
-  .contact h2 span { display: block; }
-  .contact-lede {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--muted);
-    margin: 24px 0 var(--gap);
-    max-width: 640px;
-    text-wrap: pretty;
-  }
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid rgba(245, 241, 236, 0.12);
+  padding: 80px var(--pad) 0;
+  background: rgba(6, 6, 6, 0.6);
+}
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+.footer-tagline {
+  margin: 0;
+  max-width: 300px;
+  font-size: 19px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: rgba(245, 241, 236, 0.8);
+}
+.footer-h {
+  margin: 0 0 18px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: rgba(245, 241, 236, 0.45);
+  font-weight: 400;
+}
+.footer-col { display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+.footer-link { color: var(--ink); text-decoration: none; transition: color 0.3s; cursor: none; }
+.footer-link:hover { color: var(--accent); }
+.footer-muted { color: rgba(245, 241, 236, 0.45); }
+.footer-mark {
+  margin-top: 70px;
+  font-size: clamp(80px, 13vw, 220px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.78;
+  color: rgba(245, 241, 236, 0.06);
+  user-select: none;
+  text-align: center;
+  overflow: hidden;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0 28px;
+  border-top: 1px solid var(--hair);
+  font-size: 13px;
+  color: rgba(245, 241, 236, 0.45);
+}
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    padding-top: 40px;
-    border-top: 1px solid var(--rule);
-  }
+/* ============================================================
+   HEADER (logo pill + nav panel)
+   ============================================================ */
+.site-header {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  z-index: 25;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
 
-  .contact-form { display: grid; gap: 18px; }
-  .field label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .field input,
-  .field textarea {
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    padding: 12px 14px;
-    font-size: 15px;
-    color: var(--ink);
-    font-family: var(--font-body);
-    outline: none;
-  }
-  .field textarea { resize: none; }
-  .field input:focus,
-  .field textarea:focus { border-color: var(--accent); }
+.logo-pill {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 34px;
+  border-radius: 22px;
+  background: var(--panel-solid);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 241, 236, 0.09);
+  cursor: none;
+}
+.logo-img { height: 18px; display: block; }
 
-  .contact-info {
-    display: grid;
-    gap: 24px;
-    align-content: start;
-  }
-  .contact-info .key {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-  .contact-info a,
-  .contact-info .val {
-    font-family: var(--font-title);
-    font-size: 22px;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .contact-info .val-sm { font-size: 20px; }
-  .contact-info .val-it { font-size: 20px; font-style: italic; }
+/* scorciatoia contatti, ancorata in alto a destra, in linea col menu */
+.head-cta {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 25;
+  height: 68px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 30px;
+  border-radius: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 241, 236, 0.09);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: none;
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+.head-cta:hover { color: var(--accent); border-color: rgba(255, 85, 0, 0.5); }
 
-  .nb {
-    margin-top: 12px;
-    padding: 16px;
-    border: 1px solid var(--rule);
-    background: var(--tag);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-  .nb .nb-tag { color: var(--accent); margin-bottom: 6px; }
+.nav-panel {
+  width: min(540px, 56vw);
+  border-radius: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 241, 236, 0.09);
+  overflow: hidden;
+}
+.nav-bar {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px 0 32px;
+  cursor: none;
+}
+.nav-label { font-size: 22px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
+.menu-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: none;
+  color: var(--ink);
+  transition: color 0.3s;
+}
+.nav-bar:hover .menu-btn { color: var(--accent); }
+.menu-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+.menu-icon-open { opacity: 0; }
 
-  /* ── Footer ─────────────────────────────────────────────────────── */
-  .site-footer {
-    padding: 32px var(--side);
-    border-top: 1px solid var(--rule);
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-size: 11px;
-    color: var(--muted);
-    font-family: var(--font-mono);
-    letter-spacing: .04em;
-  }
+.nav-links { height: 0; opacity: 0; overflow: hidden; }
+.nav-links-inner { display: flex; flex-direction: column; align-items: flex-start; padding: 4px 32px 28px; }
+.nav-item {
+  opacity: 0;
+  transform: translateY(16px);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 7px 0;
+  color: var(--ink);
+  transition: color 0.28s;
+  cursor: none;
+}
+.nav-item:hover { color: var(--accent); }
+.nav-item span { font-size: clamp(28px, 2.5vw, 38px); font-weight: 400; letter-spacing: -0.015em; line-height: 1.18; }
+.nav-underline {
+  height: 2px;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 2px;
+  background: var(--accent);
+  display: none;
+}
+.nav-item.is-active .nav-underline { display: block; }
+.nav-write {
+  opacity: 0;
+  transform: translateY(16px);
+  margin-top: 22px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: rgba(245, 241, 236, 0.5);
+  text-decoration: none;
+  transition: color 0.28s;
+  cursor: none;
+}
+.nav-write:hover { color: var(--accent); }
 
-  /* ── Language visibility ─────────────────────────────────────────
-     Only the inactive language is hidden, so the active element keeps
-     whatever display its own rules give it (block, inline, flex…).
-     Default lang="it" works with no JS. */
-  html[lang="it"] [data-lang="en"],
-  html[lang="en"] [data-lang="it"] { display: none; }
+/* ============================================================
+   WIPE TRANSITION + CURSOR
+   ============================================================ */
+.wipe-layer { position: absolute; inset: 0; z-index: 40; pointer-events: none; }
+.wipe-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.wipe-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  letter-spacing: 0.5em;
+  color: var(--accent);
+  opacity: 0;
+}
 
-  /* ── Responsive ─────────────────────────────────────────────────── */
-  @media (max-width: 1024px) {
-    :root { --pad-y: 120px; --gap: 72px; --side: 40px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service {
-      border-left: 1px solid var(--rule);
-      border-top: none;
-      min-height: 0;
-    }
-    .service:first-child { border-top: 1px solid var(--rule); }
-    .products-grid { grid-template-columns: 1fr; }
-    .product {
-      border-left: 1px solid var(--rule);
-      border-top: none;
-      min-height: 0;
-    }
-    .product:first-child { border-top: 1px solid var(--rule); }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  }
+.cursor-dot, .cursor-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  pointer-events: none;
+  transform: translate(-100px, -100px);
+}
+.cursor-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.cursor-ring { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255, 85, 0, 0.6); }
 
-  @media (max-width: 680px) {
-    :root { --pad-y: 88px; --gap: 56px; --side: 22px; }
-    .site-header { flex-wrap: wrap; gap: 14px 20px; padding: 16px var(--side); }
-    .brand .stamp { display: none; }
-    .nav { gap: 18px; font-size: 12px; flex-wrap: wrap; }
-    .hero { padding-top: 96px; }
-    .hero-lede { font-size: 17px; }
-    .site-footer { flex-direction: column; gap: 8px; }
-  }
+/* ============================================================
+   NOVAITERA (product page)
+   ============================================================ */
+.nv-hero {
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 150px var(--pad) 90px;
+}
+.nv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 28px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+.nv-title {
+  margin: 0;
+  font-size: clamp(48px, 6.4vw, 108px);
+  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  max-width: 1000px;
+}
+.nv-lead {
+  margin: 32px 0 0;
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--muted-2);
+}
+.nv-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 42px; }
+
+.nv-specs {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  border-top: 1px solid var(--hair);
+  padding-top: 34px;
+}
+.nv-spec-k { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+.nv-spec-v { font-size: 15px; font-weight: 300; color: rgba(245, 241, 236, 0.78); line-height: 1.5; }
+
+/* section shell reused by NovaItera blocks */
+.nv-section { padding: 120px var(--pad); border-top: 1px solid var(--hair); }
+.nv-head { margin-bottom: 64px; max-width: 820px; }
+.nv-head .eyebrow { margin-bottom: 24px; }
+.nv-head h2 { margin: 0 0 18px; font-size: clamp(32px, 4vw, 62px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.04; }
+.nv-head p { margin: 0; font-size: 17px; line-height: 1.6; font-weight: 300; color: var(--muted-2); max-width: 560px; }
+
+/* steps */
+.nv-step {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  padding: 46px 0;
+  border-top: 1px solid var(--hair);
+}
+.nv-step:first-of-type { border-top: none; }
+.nv-step-idx { font-family: var(--mono); font-size: 13px; letter-spacing: 0.18em; color: var(--accent); }
+.nv-step h3 { margin: 0 0 16px; font-size: clamp(26px, 2.6vw, 38px); font-weight: 500; letter-spacing: -0.015em; }
+.nv-step p { margin: 0; font-size: 16px; line-height: 1.65; font-weight: 300; color: var(--muted); max-width: 620px; }
+.nv-code {
+  margin: 22px 0 0;
+  padding: 16px 18px;
+  border: 1px solid var(--hair-strong);
+  border-radius: 10px;
+  background: rgba(10, 10, 10, 0.6);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: rgba(245, 241, 236, 0.7);
+  overflow-x: auto;
+  white-space: pre;
+}
+.nv-code .accent { color: var(--accent); }
+
+/* capabilities grid */
+.nv-caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.nv-cap {
+  border: 1px solid var(--hair-strong);
+  border-radius: 16px;
+  padding: 30px 30px 34px;
+  background: rgba(10, 10, 10, 0.55);
+  transition: border-color 0.35s, transform 0.35s;
+}
+.nv-cap:hover { border-color: rgba(255, 85, 0, 0.6); transform: translateY(-4px); }
+.nv-cap-idx { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: rgba(245, 241, 236, 0.4); }
+.nv-cap h3 { margin: 18px 0 12px; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
+.nv-cap p { margin: 0 0 20px; font-size: 14.5px; line-height: 1.6; font-weight: 300; color: var(--muted); }
+.nv-cap ul { list-style: none; margin: 0; padding: 0; }
+.nv-cap li {
+  position: relative;
+  padding: 9px 0 9px 20px;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(245, 241, 236, 0.8);
+  border-top: 1px solid var(--hair);
+}
+.nv-cap li::before { content: "↳"; position: absolute; left: 0; color: var(--accent); }
+
+/* why */
+.nv-why-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 40px;
+  padding: 44px 0;
+  border-top: 1px solid var(--hair);
+}
+.nv-why-row:last-child { border-bottom: 1px solid var(--hair); }
+.nv-why-num { font-family: var(--mono); font-size: 14px; letter-spacing: 0.1em; color: var(--accent); }
+.nv-why-row h3 { margin: 0 0 14px; font-size: clamp(24px, 2.4vw, 36px); font-weight: 500; letter-spacing: -0.015em; }
+.nv-why-row p { margin: 0; font-size: 16px; line-height: 1.65; font-weight: 300; color: var(--muted); max-width: 680px; }
+
+/* demo cta */
+.nv-demo { padding: 140px var(--pad) 120px; border-top: 1px solid var(--hair); text-align: center; }
+.nv-demo h2 { margin: 0 auto; max-width: 1000px; font-size: clamp(40px, 5.2vw, 88px); line-height: 1.05; font-weight: 500; letter-spacing: -0.03em; }
+.nv-demo-lead { margin: 32px auto 0; max-width: 560px; font-size: 17px; line-height: 1.6; font-weight: 300; color: var(--muted-2); }
+.nv-demo-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 42px; }
+.nv-note {
+  max-width: 520px;
+  margin: 60px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(245, 241, 236, 0.5);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  :root { --pad: 24px; }
+
+  .stage { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+  .btn, .svc-row, .prod-card, .cta-line, .choice, .field, .logo-pill,
+  .nav-bar, .menu-btn, .nav-item, .nav-write, .aside-link, .aside-social a,
+  .footer-link, .link-btn { cursor: pointer; }
+
+  .site-header { top: 14px; left: 14px; right: 14px; gap: 10px; }
+  .nav-panel { width: auto; flex: 1; }
+  .head-cta { display: none; }
+
+  .hero { padding-top: 130px; }
+  .statement { padding-top: 110px; padding-bottom: 100px; }
+
+  .trio { grid-template-columns: 1fr; gap: 48px; padding: 70px 0; }
+
+  .product-featured { grid-template-columns: 1fr; gap: 32px; padding: 34px 28px; }
+  .pf-aside { border-left: none; border-top: 1px solid var(--hair); padding-left: 0; padding-top: 28px; }
+  .products-soon { grid-template-columns: 1fr; }
+
+  .svc-row { grid-template-columns: 50px 1fr 30px; gap: 6px 14px; }
+  .svc-row .svc-tags { grid-column: 2; opacity: 0.5; }
+  .svc-row:hover { padding-left: 18px; }
+
+  .svc-detail { grid-template-columns: 1fr; gap: 26px; }
+  .svc-list { gap: 12px 20px; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+  .nv-hero { padding-top: 130px; }
+  .nv-section { padding: 80px var(--pad); }
+  .nv-specs { grid-template-columns: 1fr; gap: 18px; }
+  .nv-step { grid-template-columns: 1fr; gap: 16px; padding: 34px 0; }
+  .nv-caps { grid-template-columns: 1fr; }
+  .nv-why-row { grid-template-columns: 1fr; gap: 12px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+}
+
+@media (max-width: 520px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+  .marquee { font-size: 20px; gap: 32px; }
+}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <a class="brand" href="index.html#top" aria-label="Deventis — home">
-    <svg viewBox="0 0 380.82 54.345" role="img" aria-label="Deventis">
-      <path d="M37.293 8.127q7.81 7.251 7.809 18.966 0 11.636-7.848 19.005-7.85 7.373-20.76 7.371H0V.876h16.494q12.989 0 20.799 7.251Zm-28.848.399v37.374h7.971q9.164 0 14.58-5.262 5.42-5.262 5.421-13.545 0-8.448-5.379-13.51-5.382-5.056-14.622-5.058z" fill="currentColor"/>
-      <path d="M312.536 8.445h-17.769v45.024h-8.448V8.445H268.628V.882h43.908z" fill="currentColor"/>
-      <path d="M332.967 53.469h-8.445V.882h8.445z" fill="currentColor"/>
-      <path d="M368.229 24.144l-5.898-2.709a27.5 27.5 0 0 1-5.658-3.348 5.155 5.155 0 0 1-1.674-4.143 5.439 5.439 0 0 1 2.313-4.74 9.545 9.545 0 0 1 5.658-1.635 12.037 12.037 0 0 1 7.271 2.417l6.823-4.282A19.4 19.4 0 0 0 362.97.001a17.94 17.94 0 0 0-11.796 3.942 12.74 12.74 0 0 0-4.779 10.32 11.95 11.95 0 0 0 3.225 8.526 28.24 28.24 0 0 0 9.045 6.057l5.817 2.709a25.27 25.27 0 0 1 5.937 3.507 5.56 5.56 0 0 1 1.794 4.383 6.47 6.47 0 0 1-2.511 5.34 10.27 10.27 0 0 1-6.573 1.992c-4.381 0-8.245-2.006-11.651-5.797l-6.524 4.094a21.96 21.96 0 0 0 6.618 6.245 22.64 22.64 0 0 0 11.634 3.027q7.65 0 12.63-4.182a13.7 13.7 0 0 0 4.983-11.037 12.33 12.33 0 0 0-3.108-8.607 29.39 29.39 0 0 0-9.252-5.376z" fill="currentColor"/>
-      <polygon points="124.584 28.39 113.196 0.882 103.712 0.882 119.964 38.354 124.584 28.39" fill="currentColor"/>
-      <path d="M91.744 8.445H65.605v13.467h22.258v7.332H65.605v16.656h27.096v7.569H57.16V.882h34.584z" fill="currentColor"/>
-      <path d="M199.974 8.445h-26.139v13.467h22.258v7.332h-22.258v16.656h27.096v7.569h-35.541V.882h34.584z" fill="currentColor"/>
-      <polygon points="256.488 0.882 248.04 0.882 248.04 36.331 216.867 0.882 213.137 0.882 213.137 53.464 221.582 53.464 221.582 17.923 252.839 53.456 256.488 53.456 256.488 0.882" fill="currentColor"/>
-      <polygon points="153.003 0.882 143.519 0.882 124.095 47.878 126.515 53.456 130.202 53.456 153.003 0.882" fill="currentColor" opacity=".55"/>
-    </svg>
-  </a>
+<div class="stage">
 
-  <nav class="nav" aria-label="Primaria">
-    <a class="nav-link" href="index.html#services"><span data-lang="it">/servizi</span><span data-lang="en">/services</span></a>
+  <!-- Sfondo: fasci d'onda, grana pellicola, vignettatura -->
+  <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+  <div id="grain" class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
 
-    <div class="nav-item">
-      <a class="nav-link nav-trigger" href="index.html#products">
-        <span data-lang="it">/prodotti</span><span data-lang="en">/products</span>
-        <span class="caret" aria-hidden="true">▾</span>
-      </a>
-      <div class="dropdown">
-        <div class="dropdown-panel">
-          <a class="dropdown-link" href="novaitera.html">
-            <span class="dl-name">NovaItera</span>
-            <span class="dl-desc" data-lang="it">Agenti AI che migliorano da soli</span>
-            <span class="dl-desc" data-lang="en">AI agents that improve themselves</span>
-          </a>
-          <div class="dropdown-sep" aria-hidden="true"></div>
-          <span class="dropdown-link is-soon">
-            <span class="dl-name" data-lang="it">In cantiere</span><span class="dl-name" data-lang="en">In the works</span>
-            <span class="dl-desc">// 2026</span>
-          </span>
-          <span class="dropdown-link is-soon">
-            <span class="dl-name" data-lang="it">Riservato</span><span class="dl-name" data-lang="en">Under wraps</span>
-            <span class="dl-desc">// 2027</span>
-          </span>
+  <!-- ===================== CONTENUTO SCORREVOLE ===================== -->
+  <div id="scroll" class="scroll">
+
+    <!-- ============ HOME ============ -->
+    <section class="route" data-route="home" aria-label="Home">
+
+      <section class="hero">
+        <h1 class="hero-title"><span class="accent">Agenti AI</span><br>automazioni<br>e software su misura.</h1>
+        <p class="hero-lead">Affianchiamo le aziende nell'adozione dell'intelligenza artificiale: agenti che semplificano i flussi, aiutano i tuoi clienti e creano valore in ogni business unit.</p>
+        <span class="scroll-hint mono">SCORRI ↓</span>
+      </section>
+
+      <section class="statement">
+        <p class="mono eyebrow accent">CHI SIAMO</p>
+        <h2 class="statement-h">Deventis è l'alleato delle aziende nell'adozione dell'IA: costruiamo <span class="accent">agenti su misura</span> che si adattano al vostro lavoro e migliorano nel tempo con formazione, software e integrazioni intorno.</h2>
+      </section>
+
+      <section class="svc-block">
+        <div class="sec-head">
+          <h2>Cosa facciamo</h2>
+          <button data-hov class="link-btn" data-nav="servizi">Tutti i servizi </button>
         </div>
+        <div class="svc-rows">
+          <div data-hov class="svc-row" data-nav="servizi">
+            <span class="mono svc-idx">01</span>
+            <h3>Piattaforme custom</h3>
+            <span class="mono svc-tags">SaaS, dashboard interne, marketplace, strumenti di lavoro. Dall'architettura al design system, fino al deploy in produzione.</span>
+            <span class="svc-arrow"></span>
+          </div>
+          <div data-hov class="svc-row" data-nav="servizi">
+            <span class="mono svc-idx">02</span>
+            <h3>Applicazioni mobile</h3>
+            <span class="mono svc-tags">App native o cross-platform per iOS e Android. Pensate per essere veloci, fluide, e per durare nel tempo.</span>
+            <span class="svc-arrow"></span>
+          </div>
+          <div data-hov class="svc-row" data-nav="servizi">
+            <span class="mono svc-idx">03</span>
+            <h3>Integrazioni AI</h3>
+            <span class="mono svc-tags">Copiloti, agenti operativi, automazioni di processo. Usiamo i modelli dove riducono lavoro manuale e fanno risparmiare tempo, con risultati misurabili.</span>
+            <span class="svc-arrow"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="prod-block">
+        <div class="prod-intro">
+          <p class="mono eyebrow accent">PRODOTTI</p>
+          <h2 class="prod-intro-h">Prodotti.</h2>
+          <p class="prod-intro-lead">Trasformiamo in prodotto ciò che impariamo sui progetti dei clienti. Tre in tutto: uno in produzione, due in sviluppo.</p>
+        </div>
+
+        <div data-hov class="product-featured" data-nav="novaitera">
+          <div class="pf-main">
+            <h3 class="pf-name">NovaItera</h3>
+            <p class="pf-tagline">Agenti AI che migliorano da soli.</p>
+            <p class="pf-body">La piattaforma per creare assistenti AI sulla conoscenza della tua azienda, pubblicarli sul sito o via API, e lasciarli migliorare nel tempo — con verifica sul traffico reale e rollback automatico.</p>
+            <span class="pf-go mono">Scopri NovaItera&nbsp;→</span>
+          </div>
+          <div class="pf-aside">
+            <ul class="pf-bullets">
+              <li>Assistenti AI sulla tua conoscenza</li>
+              <li>Pubblicazione su sito o via API</li>
+              <li>Verifica sul traffico reale</li>
+              <li>Rollback automatico</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="products-soon">
+          <article class="product-soon">
+            <header class="ps-head">
+              <span class="mono ps-idx">·····</span>
+              <span class="dot" aria-hidden="true"></span>
+            </header>
+            <h3>In cantiere.</h3>
+            <p class="muted ps-body">Il secondo prodotto è in sviluppo. Lo presenteremo quando sarà pronto al rilascio.</p>
+            <span class="mono ps-soon accent">annuncio nel 2026</span>
+          </article>
+
+          <article class="product-soon">
+            <header class="ps-head">
+              <span class="mono ps-idx">·····</span>
+              <span class="dot" aria-hidden="true"></span>
+            </header>
+            <h3>Riservato, per ora.</h3>
+            <p class="muted ps-body">Terzo prodotto in fase iniziale. Scrivici se vuoi saperne di più: possiamo anticiparti qualcosa.</p>
+            <span class="mono ps-soon accent">annuncio nel 2027</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="big-cta">
+        <p class="mono eyebrow accent">HAI UN'IDEA?</p>
+        <h2 data-hov class="cta-line" data-nav="contatti">Raccontacela.<br><span class="cta-italic">Costruiamola insieme.</span></h2>
+      </section>
+
+    </section>
+
+    <!-- ============ SERVIZI ============ -->
+    <section class="route" data-route="servizi" aria-label="Servizi" hidden>
+
+      <section class="page-hero page-hero-tall">
+        <h1 class="page-title">Cosa<br><span class="accent">costruiamo</span>.</h1>
+        <p class="page-lead">Seguiamo ogni progetto dall'architettura al rilascio, lavorando con pochi team alla volta. Niente pacchetti preconfezionati: si parte sempre dal tuo problema.</p>
+      </section>
+
+      <section class="svc-detail">
+        <div class="svc-detail-head"><h2>Piattaforme<br>custom</h2></div>
+        <div class="svc-detail-body">
+          <p class="quote">«Dal tuo problema all'architettura, fino al deploy in produzione.»</p>
+          <p class="muted svc-detail-p">SaaS, dashboard interne, marketplace, strumenti di lavoro. Dall'architettura al design system, fino al deploy in produzione.</p>
+          <div class="svc-list">
+            <span>Architettura backend</span>
+            <span>Design system</span>
+            <span>Integrazioni &amp; API</span>
+            <span>DevOps &amp; osservabilità</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="svc-detail">
+        <div class="svc-detail-head"><h2>Applicazioni<br>mobile</h2></div>
+        <div class="svc-detail-body">
+          <p class="quote">«App veloci, fluide, fatte per durare nel tempo.»</p>
+          <p class="muted svc-detail-p">App native o cross-platform per iOS e Android. Pensate per essere veloci, fluide, e per durare nel tempo.</p>
+          <div class="svc-list">
+            <span>Nativo o cross-platform</span>
+            <span>Performance &amp; fluidità</span>
+            <span>Offline &amp; sync</span>
+            <span>Pubblicazione &amp; store</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="svc-detail svc-detail-last">
+        <div class="svc-detail-head"><h2>Integrazioni<br>AI</h2></div>
+        <div class="svc-detail-body">
+          <p class="quote">«I modelli dove riducono il lavoro manuale e fanno risparmiare tempo.»</p>
+          <p class="muted svc-detail-p">Copiloti, agenti operativi, automazioni di processo. Usiamo i modelli dove riducono lavoro manuale e fanno risparmiare tempo, con risultati misurabili.</p>
+          <div class="svc-list">
+            <span>Agenti operativi su misura</span>
+            <span>Automazione di processi</span>
+            <span>Estrazione dati da documenti</span>
+            <span>Misurazione &amp; guardrail</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="big-cta">
+        <p class="mono eyebrow accent">HAI UN'IDEA?</p>
+        <h2 data-hov class="cta-line cta-line-italic" data-nav="contatti">Raccontacela.</h2>
+      </section>
+
+    </section>
+
+    <!-- ============ NOVAITERA ============ -->
+    <section class="route" data-route="novaitera" aria-label="NovaItera" hidden>
+
+      <section class="nv-hero">
+        <h1 class="nv-title">Agenti AI che migliorano,<br><span class="accent">conversazione dopo conversazione</span>.</h1>
+        <p class="nv-lead">NovaItera è la piattaforma con cui crei assistenti AI fondati sulla conoscenza della tua azienda, li pubblichi sul sito o via API in pochi minuti, e li lasci migliorare nel tempo. Ogni modifica è misurata, verificata su traffico reale e reversibile — con prove, non promesse.</p>
+        <div class="nv-actions">
+          <a data-hov class="btn btn-solid" href="mailto:ciao@deventis.it?subject=Demo%20NovaItera">Richiedi una demo</a>
+          <button data-hov class="btn btn-ghost" data-nav="home">← Torna alla home</button>
+        </div>
+        <div class="nv-specs">
+          <div><span class="nv-spec-k">versionato</span><span class="nv-spec-v">ogni configurazione è reversibile</span></div>
+          <div><span class="nv-spec-k">canary</span><span class="nv-spec-v">le modifiche si provano sul traffico reale</span></div>
+          <div><span class="nv-spec-k">multi-provider</span><span class="nv-spec-v">Anthropic, OpenAI, Gemini, self-hosted</span></div>
+        </div>
+      </section>
+
+      <!-- COME FUNZIONA -->
+      <section class="nv-section">
+        <div class="nv-head">
+          <p class="mono eyebrow accent">COME FUNZIONA</p>
+          <h2>Quattro passi. Zero codice.</h2>
+          <p>Dal pannello alla produzione in giornata — e da lì in poi, il sistema lavora per te.</p>
+        </div>
+
+        <div class="nv-step">
+          <span class="nv-step-idx">Configura</span>
+          <div>
+            <h3>Disegna l'agente</h3>
+            <p>Scegli il modello, scrivi le istruzioni, attiva gli strumenti: ricerca web, lettura di pagine, perfino le API dei tuoi sistemi interni. Ogni modifica crea una versione — puoi sempre tornare indietro.</p>
+          </div>
+        </div>
+
+        <div class="nv-step">
+          <span class="nv-step-idx">Conosci</span>
+          <div>
+            <h3>Collega la conoscenza</h3>
+            <p>Documenti, PDF, pagine web. L'agente risponde citando le fonti — e se la risposta non c'è, lo dice, invece di inventare. La piattaforma sceglie da sola la strategia più efficiente per usare i contenuti.</p>
+          </div>
+        </div>
+
+        <div class="nv-step">
+          <span class="nv-step-idx">Pubblica</span>
+          <div>
+            <h3>Pubblica dove vuoi</h3>
+            <p>Una riga di script per il widget di chat sul tuo sito, oppure API REST con streaming in tempo reale per i tuoi prodotti. Domini autorizzati, limiti di utilizzo e chiavi dedicate inclusi.</p>
+          </div>
+        </div>
+
+        <div class="nv-step">
+          <span class="nv-step-idx">Migliora</span>
+          <div>
+            <h3>Lascia che migliori da solo</h3>
+            <p>NovaItera analizza conversazioni e feedback, propone istruzioni migliori, le testa su una parte del traffico e le conferma solo se i numeri migliorano. Se peggiorano, torna indietro automaticamente.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAPACITÀ -->
+      <section class="nv-section">
+        <div class="nv-head">
+          <h2>Non un chatbot. Un sistema.</h2>
+          <p>Tutto quello che serve per gestire l'AI conversazionale in azienda, in un unico posto.</p>
+        </div>
+
+        <div class="nv-caps">
+          <article class="nv-cap">
+            <span class="nv-cap-idx">KNOWLEDGE</span>
+            <h3>Conoscenza con le fonti</h3>
+            <p>Basi di conoscenza condivise tra più agenti, con ricerca semantica e citazioni. I contenuti da web si aggiornano da soli.</p>
+            <ul>
+              <li>Documenti, PDF, URL</li>
+              <li>Risposte con citazioni</li>
+              <li>Aggiornamento automatico</li>
+            </ul>
+          </article>
+
+          <article class="nv-cap">
+            <span class="nv-cap-idx">OPTIMIZER</span>
+            <h3>Ottimizzazione con rollback</h3>
+            <p>Il motore di self-learning misura le conversazioni, propone miglioramenti, li verifica con test canary sul traffico reale e annulla da solo le regressioni.</p>
+            <ul>
+              <li>Analisi di feedback e metriche</li>
+              <li>Test canary A/B</li>
+              <li>Rollback automatico</li>
+            </ul>
+          </article>
+
+          <article class="nv-cap">
+            <span class="nv-cap-idx">GUARDRAIL</span>
+            <h3>Perimetro e cache</h3>
+            <p>Lo scope guard tiene l'agente nel suo ambito — niente fuori tema, niente usi impropri. La cache semantica risponde alle domande ricorrenti senza richiamare il modello.</p>
+            <ul>
+              <li>Ambito definito da te</li>
+              <li>Meno latenza, meno costi</li>
+            </ul>
+          </article>
+
+          <article class="nv-cap">
+            <span class="nv-cap-idx">CANALI</span>
+            <h3>Widget e API</h3>
+            <p>Chat elegante per il sito, installabile con una riga. API REST con conversazioni multi-turno, streaming e webhook per integrare gli agenti ovunque.</p>
+            <ul>
+              <li>Streaming in tempo reale</li>
+              <li>Domini autorizzati</li>
+              <li>Webhook di integrazione</li>
+            </ul>
+          </article>
+
+          <article class="nv-cap">
+            <span class="nv-cap-idx">COSTI</span>
+            <h3>Costi sotto controllo</h3>
+            <p>Spesa stimata in tempo reale per agente e modello, budget mensili con avvisi automatici. L'ottimizzazione dei costi è parte del prodotto, non un extra.</p>
+            <ul>
+              <li>Spesa per agente</li>
+              <li>Budget e avvisi</li>
+            </ul>
+          </article>
+
+          <article class="nv-cap">
+            <span class="nv-cap-idx">GOVERNANCE</span>
+            <h3>Governance aziendale</h3>
+            <p>Spazi di lavoro isolati, ruoli e permessi, audit log completo di ogni modifica. E libertà di modello: cambi provider quando vuoi, le chiavi restano tue.</p>
+            <ul>
+              <li>Ruoli e audit log</li>
+              <li>Multi-organizzazione</li>
+              <li>Anche self-hosted</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- PERCHÉ -->
+      <section class="nv-section">
+        <div class="nv-head">
+          <p class="mono eyebrow accent">PERCHÉ NOVAITERA</p>
+          <h2>La differenza è nel dopo.</h2>
+          <p>Tra «abbiamo un chatbot» e «abbiamo un assistente che funziona davvero» c'è tutto quello che succede dopo il lancio.</p>
+        </div>
+
+        <div class="nv-why-row">
+          <div>
+            <h3>Online in giornata, non in mesi.</h3>
+            <p>Niente progetti di sviluppo su misura per partire: configuri dal pannello, incolli uno script, sei in produzione.</p>
+          </div>
+        </div>
+
+        <div class="nv-why-row">
+          <div>
+            <h3>Qualità che cresce, con prove.</h3>
+            <p>Gli altri assistenti restano come il primo giorno. NovaItera misura, propone, testa sul traffico reale e conferma solo ciò che migliora i numeri.</p>
+          </div>
+        </div>
+
+        <div class="nv-why-row">
+          <div>
+            <h3>Nessun lock-in sul modello.</h3>
+            <p>Il mercato dei modelli cambia ogni mese. Passi al migliore — o al più economico — senza riscrivere nulla. Anche self-hosted, per i dati che non escono.</p>
+          </div>
+        </div>
+
+        <div class="nv-why-row">
+          <div>
+            <h3>Risposte fondate, non inventate.</h3>
+            <p>L'agente attinge dai tuoi documenti e cita le fonti. Se la risposta non c'è, lo dice. Il perimetro lo decidi tu, il sistema lo fa rispettare.</p>
+          </div>
+        </div>
+
+        <div class="nv-why-row">
+          <div>
+            <h3>Ogni cambiamento è reversibile.</h3>
+            <p>Versionamento completo, audit log, rollback automatico delle regressioni. L'AI in azienda senza scommesse.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEMO -->
+      <section class="nv-demo">
+        <p class="mono eyebrow accent">DEMO</p>
+        <h2>Vuoi vederlo<br><span class="cta-italic">sui tuoi contenuti?</span></h2>
+        <p class="nv-demo-lead">Raccontaci il caso d'uso: ti mostriamo un agente costruito sui tuoi documenti, funzionante, in trenta minuti. Rispondiamo entro un giorno lavorativo.</p>
+        <div class="nv-demo-actions">
+          <a data-hov class="btn btn-solid" href="mailto:ciao@deventis.it?subject=Demo%20NovaItera">Richiedi una demo</a>
+          <button data-hov class="btn btn-ghost" data-nav="contatti">Oppure scrivici</button>
+        </div>
+        <p class="nv-note">NovaItera è un prodotto Deventis: lo stesso team che lo ha costruito ti accompagna nell'adozione.</p>
+      </section>
+
+    </section>
+
+    <!-- ============ CONTATTI ============ -->
+    <section class="route" data-route="contatti" aria-label="Contatti" hidden>
+
+      <section class="page-hero">
+        <p class="mono eyebrow accent">CONTATTI</p>
+        <h1 class="page-title">Iniziamo<br>a <span class="accent cta-italic">ideare</span>.</h1>
+        <p class="page-lead">Hai un progetto in mente? Compila il form se ti va di raccontarcelo, o vai di email se preferisci il suono della tua tastiera.</p>
+      </section>
+
+      <div class="contact-grid">
+
+        <form id="contactForm" class="contact-form">
+          <div>
+            <p class="mono field-label">COSA TI INTERESSA?</p>
+            <div class="chip-choices">
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="AI Agent"><span>Agente AI</span></label>
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="NovaItera"><span>NovaItera</span></label>
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="Custom Platforms"><span>Piattaforme Custom</span></label>
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="Apps"><span>Apps</span></label>
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="UI/UX"><span>UI/UX Design</span></label>
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="Development"><span>Development</span></label>
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="AI Integrations"><span>AI Integrations</span></label>
+              <label data-chip data-hov class="choice"><input type="checkbox" name="servizi" value="Idk"><span>Non lo so ancora</span></label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <p class="mono field-label field-label-tight">CHI SEI?</p>
+            <input type="text" name="nome" placeholder="Il tuo nome" required autocomplete="name" class="field">
+            <input type="text" name="azienda" placeholder="La tua azienda" autocomplete="organization" class="field">
+            <input type="email" name="email" placeholder="La tua email" required autocomplete="email" class="field">
+            <textarea name="messaggio" rows="3" placeholder="Raccontaci il progetto…" class="field"></textarea>
+          </div>
+
+          <div>
+            <p class="mono field-label">BUDGET INDICATIVO</p>
+            <div class="chip-choices">
+              <label data-chip data-hov class="choice"><input type="radio" name="budget" value="&lt; 10k"><span>&lt; 10k</span></label>
+              <label data-chip data-hov class="choice"><input type="radio" name="budget" value="10–25k"><span>10–25k</span></label>
+              <label data-chip data-hov class="choice"><input type="radio" name="budget" value="25–50k"><span>25–50k</span></label>
+              <label data-chip data-hov class="choice"><input type="radio" name="budget" value="&gt; 50k"><span>&gt; 50k</span></label>
+            </div>
+          </div>
+
+          <div>
+            <button data-hov type="submit" class="btn btn-submit">Invia </button>
+            <p class="form-note">L'invio apre il tuo client di posta con il messaggio già pronto: nessun dato viene salvato da questo sito.</p>
+          </div>
+        </form>
+
+        <aside class="contact-aside">
+          <div>
+            <h4 class="mono aside-label">EMAIL</h4>
+            <a data-hov class="aside-link" data-mail="main" href="#">ciao@deventis.it</a>
+          </div>
+          <div>
+            <h4 class="mono aside-label">PREFERISCI PARLARNE A VOCE?</h4>
+            <a data-hov class="aside-link" data-mail="call" href="#">Prenota una call </a>
+          </div>
+          <div>
+            <h4 class="mono aside-label">DOVE SIAMO</h4>
+            <p class="aside-where">Treviso, Italia</p>
+          </div>
+          <div>
+            <h4 class="mono aside-label">SOCIAL</h4>
+            <div class="aside-social">
+              <a data-hov href="#" rel="noopener">LinkedIn</a>
+              <a data-hov href="#" rel="noopener">Instagram</a>
+            </div>
+          </div>
+        </aside>
+
       </div>
-    </div>
 
-    <a class="nav-link" href="index.html#contact"><span data-lang="it">/contatti</span><span data-lang="en">/contact</span></a>
-    <div class="lang-toggle" role="group" aria-label="Lingua / Language">
-      <button type="button" data-set-lang="it" aria-pressed="true">IT</button>
-      <span class="sep" aria-hidden="true">/</span>
-      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
-    </div>
-    <a class="btn btn-nav" href="index.html#contact">
-      <span data-lang="it">Parliamone&nbsp;→</span><span data-lang="en">Let’s&nbsp;talk&nbsp;→</span>
-    </a>
-  </nav>
-</header>
+    </section>
 
-<main id="top">
-
-  <!-- ── HERO ─────────────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1 class="rv rv-2">
-        <span data-lang="it">Diamo forma,</span>
-        <span data-lang="en">We give shape</span>
-        <span class="line-accent" data-lang="it">a ciò che vuoi costruire.</span>
-        <span class="line-accent" data-lang="en">to what you want to build.</span>
-      </h1>
-
-      <p class="hero-lede rv rv-3" data-lang="it">Deventis nasce per accompagnare chi vuole costruire qualcosa di vero. Disegniamo e sviluppiamo piattaforme custom, app mobile e integrazioni AI per fondatori e team che vogliono fare le cose come si deve.</p>
-      <p class="hero-lede rv rv-3" data-lang="en">Deventis exists to support people who want to build something real. We design and build custom platforms, mobile apps and AI integrations for founders and teams who care about getting it right.</p>
-
-      <div class="hero-actions rv rv-4">
-        <a class="btn btn-primary" href="#contact">
-          <span data-lang="it">Parliamone&nbsp;↗</span><span data-lang="en">Let’s&nbsp;talk&nbsp;↗</span>
-        </a>
-        <a class="btn btn-secondary" href="#services">
-          <span data-lang="it">$ I servizi</span><span data-lang="en">$ See services</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SERVICES ─────────────────────────────────────────────────── -->
-  <section class="section" id="services">
-    <div class="services-head rv">
-      <span class="eyebrow">
-        <span data-lang="it">§ 02 · Cosa facciamo</span><span data-lang="en">§ 02 · What we do</span>
-      </span>
-      <h2><span data-lang="it">Tre cose, fatte bene.</span><span data-lang="en">Three things, done well.</span></h2>
-      <p data-lang="it">Lavoriamo a stretto contatto con un piccolo numero di team ogni anno. Niente pacchetti, niente template — solo prodotto.</p>
-      <p data-lang="en">We work closely with a small number of teams each year. No packages, no templates — only product.</p>
-    </div>
-
-    <div class="services-grid">
-      <article class="service rv rv-2">
-        <header class="service-head">
-          <span class="idx">01 / Web</span>
-          <span class="dot" aria-hidden="true"></span>
-        </header>
-        <h3>
-          <span data-lang="it"><span class="lead-word">Piattaforme</span> custom</span>
-          <span data-lang="en"><span class="lead-word">Custom</span> platforms</span>
-        </h3>
-        <p class="body" data-lang="it">SaaS, dashboard interne, marketplace, strumenti di lavoro. Dall’architettura al design system, fino al deploy in produzione.</p>
-        <p class="body" data-lang="en">SaaS, internal dashboards, marketplaces, line-of-business tools. From architecture to design system, to shipping in production.</p>
-        <ul>
-          <li data-lang="it">Architettura backend</li>
-          <li data-lang="en">Backend architecture</li>
-          <li data-lang="it">Design system</li>
-          <li data-lang="en">Design system</li>
-          <li data-lang="it">Integrazioni &amp; API</li>
-          <li data-lang="en">Integrations &amp; APIs</li>
-          <li data-lang="it">DevOps &amp; osservabilità</li>
-          <li data-lang="en">DevOps &amp; observability</li>
-        </ul>
-      </article>
-
-      <article class="service is-featured rv rv-3">
-        <header class="service-head">
-          <span class="idx">02 / Mobile</span>
-          <span class="dot" aria-hidden="true"></span>
-        </header>
-        <h3>
-          <span data-lang="it"><span class="lead-word">Applicazioni</span> mobile</span>
-          <span data-lang="en"><span class="lead-word">Mobile</span> apps</span>
-        </h3>
-        <p class="body" data-lang="it">App native o cross-platform per iOS e Android. Pensate per essere veloci, fluide, e per durare nel tempo.</p>
-        <p class="body" data-lang="en">Native or cross-platform apps for iOS and Android. Built to feel fast, smooth, and to age well.</p>
-        <ul>
-          <li data-lang="it">Nativo o cross-platform</li>
-          <li data-lang="en">Native or cross-platform</li>
-          <li data-lang="it">Performance &amp; fluidità</li>
-          <li data-lang="en">Performance &amp; smoothness</li>
-          <li data-lang="it">Offline &amp; sync</li>
-          <li data-lang="en">Offline &amp; sync</li>
-          <li data-lang="it">Pubblicazione &amp; store</li>
-          <li data-lang="en">Release &amp; store</li>
-        </ul>
-      </article>
-
-      <article class="service rv rv-4">
-        <header class="service-head">
-          <span class="idx">03 / AI</span>
-          <span class="dot" aria-hidden="true"></span>
-        </header>
-        <h3>
-          <span data-lang="it"><span class="lead-word">Integrazioni</span> AI</span>
-          <span data-lang="en"><span class="lead-word">AI</span> integration</span>
-        </h3>
-        <p class="body" data-lang="it">Copiloti, agenti operativi, automazioni di processo. Mettere i modelli là dove generano valore vero, non come spettacolo.</p>
-        <p class="body" data-lang="en">Copilots, operational agents, process automation. Putting models where they generate real value — not where they look good.</p>
-        <ul>
-          <li data-lang="it">Agenti operativi su misura</li>
-          <li data-lang="en">Custom operational agents</li>
-          <li data-lang="it">Automazione di processi</li>
-          <li data-lang="en">Process automation</li>
-          <li data-lang="it">Estrazione dati da documenti</li>
-          <li data-lang="en">Document data extraction</li>
-          <li data-lang="it">Misurazione &amp; guardrail</li>
-          <li data-lang="en">Measurement &amp; guardrails</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- ── PRODUCTS ─────────────────────────────────────────────────── -->
-  <section class="section" id="products">
-    <div class="products-head rv">
-      <span class="eyebrow">
-        <span data-lang="it">§ 03 · Prodotti</span><span data-lang="en">§ 03 · Products</span>
-      </span>
-      <h2><span data-lang="it">Prodotti.</span><span data-lang="en">Products.</span></h2>
-      <p data-lang="it">Quello che impariamo lavorando per i clienti lo trasformiamo in prodotto. Tre in tutto: uno già in produzione, due in cantiere.</p>
-      <p data-lang="en">What we learn building for clients, we turn into product. Three in all: one already in production, two in the works.</p>
-    </div>
-
-    <div class="products-grid">
-      <a class="product is-live rv rv-2" href="novaitera.html">
-        <header class="product-head">
-          <span class="idx"><span data-lang="it">01 / in produzione</span><span data-lang="en">01 / in production</span></span>
-          <span class="dot" aria-hidden="true"></span>
-        </header>
-        <h3 class="name">NovaItera</h3>
-        <p class="tagline">
-          <span data-lang="it">Agenti AI che migliorano da soli.</span>
-          <span data-lang="en">AI agents that improve themselves.</span>
-        </p>
-        <p class="body" data-lang="it">La piattaforma per creare assistenti AI sulla conoscenza della tua azienda, pubblicarli sul sito o via API, e lasciarli migliorare nel tempo — con verifica sul traffico reale e rollback automatico.</p>
-        <p class="body" data-lang="en">The platform for building AI assistants on your company's knowledge, publishing them on your site or through an API, and letting them improve over time — verified on live traffic, with automatic rollback.</p>
-        <span class="meta"><span class="go" data-lang="it">→ /novaitera</span><span class="go" data-lang="en">→ /novaitera</span></span>
-      </a>
-
-      <article class="product is-soon rv rv-3">
-        <header class="product-head">
-          <span class="idx">02 / ·····</span>
-          <span class="dot" aria-hidden="true"></span>
-        </header>
-        <h3>
-          <span data-lang="it">In cantiere.</span>
-          <span data-lang="en">In the works.</span>
-        </h3>
-        <p class="body" data-lang="it">Il secondo prodotto è in lavorazione. Ne parliamo quando ci sarà qualcosa di vero da mostrare.</p>
-        <p class="body" data-lang="en">Our second product is in the making. We'll talk about it when there's something real to show.</p>
-        <span class="meta"><span class="soon" data-lang="it">// annuncio · 2026</span><span class="soon" data-lang="en">// announcement · 2027</span></span>
-      </article>
-
-      <article class="product is-soon rv rv-4">
-        <header class="product-head">
-          <span class="idx">03 / ·····</span>
-          <span class="dot" aria-hidden="true"></span>
-        </header>
-        <h3>
-          <span data-lang="it">Riservato, per ora.</span>
-          <span data-lang="en">Under wraps, for now.</span>
-        </h3>
-        <p class="body" data-lang="it">Stessa regola: prima il prodotto, poi le parole. Se sei curioso, scrivici — qualcosa possiamo anticipare.</p>
-        <p class="body" data-lang="en">Same rule: product first, words later. If you're curious, write to us — we can share a preview.</p>
-        <span class="meta"><span class="soon" data-lang="it">// annuncio · 2027</span><span class="soon" data-lang="en">// announcement · 2026</span></span>
-      </article>
-    </div>
-  </section>
-
-  <!-- ── CONTACT ──────────────────────────────────────────────────── -->
-  <section class="section contact" id="contact">
-    <span class="eyebrow">
-      <span data-lang="it">§ 04 · Scrivici</span><span data-lang="en">§ 04 · Get in touch</span>
-    </span>
-    <h2 class="rv">
-      <span data-lang="it">Hai un’idea?</span>
-      <span data-lang="en">Got an idea?</span>
-      <span class="line-accent" data-lang="it">Raccontacela.</span>
-      <span class="line-accent" data-lang="en">Tell us about it.</span>
-    </h2>
-    <p class="contact-lede rv rv-2" data-lang="it">Rispondiamo entro un giorno lavorativo. Nessun formulario di 14 campi — un’email basta.</p>
-    <p class="contact-lede rv rv-2" data-lang="en">We answer within a business day. No 14-field form — an email is enough.</p>
-
-    <div class="contact-grid rv rv-3">
-      <form class="contact-form" novalidate>
-        <div class="field">
-          <label for="f-name">--name</label>
-          <input id="f-name" name="name" type="text"
-                 data-ph-it="Come ti chiami" data-ph-en="Your name" placeholder="Come ti chiami">
-        </div>
-        <div class="field">
-          <label for="f-email">--email</label>
-          <input id="f-email" name="email" type="email"
-                 data-ph-it="La tua email" data-ph-en="Your email" placeholder="La tua email">
-        </div>
-        <div class="field">
-          <label for="f-project">--project</label>
-          <textarea id="f-project" name="project" rows="4"
-                 data-ph-it="Su cosa stai lavorando?" data-ph-en="What are you working on?"
-                 placeholder="Su cosa stai lavorando?"></textarea>
-        </div>
-        <button class="btn btn-accent" type="submit">$ send_message ↗</button>
-      </form>
-
-      <div class="contact-info">
+    <!-- ============ FOOTER (condiviso) ============ -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <p class="footer-tagline">L'alleato delle aziende nell'era degli AI&nbsp;Agents.</p>
         <div>
-          <div class="key">--email</div>
-          <a data-lang="it" href="mailto:ciao@deventis.it">ciao@deventis.it</a>
-          <a data-lang="en" href="mailto:hello@deventis.it">hello@deventis.it</a>
+          <h4 class="mono footer-h">MENU</h4>
+          <div class="footer-col">
+            <span data-hov class="footer-link" data-nav="home">Home</span>
+            <span data-hov class="footer-link" data-nav="servizi">Servizi</span>
+            <span data-hov class="footer-link" data-nav="novaitera">NovaItera</span>
+            <span data-hov class="footer-link" data-nav="contatti">Contatti</span>
+          </div>
         </div>
         <div>
-          <div class="key">--studio</div>
-          <div class="val val-it" data-lang="it">Treviso</div>
-          <div class="val val-it" data-lang="en">Treviso</div>
+          <h4 class="mono footer-h">CONTATTI</h4>
+          <div class="footer-col">
+            <a data-hov class="footer-link" data-mail="main" href="#">ciao@deventis.it</a>
+            <span data-hov class="footer-link" data-nav="contatti">Prenota una call</span>
+            <span class="footer-muted">Treviso, Italia</span>
+          </div>
         </div>
-        <div class="nb">
-          <div class="nb-tag">// nb</div>
-          <span data-lang="it">Niente form di 14 campi. Una riga,<br>una conversazione, un caffè.</span>
-          <span data-lang="en">No 14-field form. One line,<br>one conversation, one coffee.</span>
+        <div>
+          <h4 class="mono footer-h">SOCIAL</h4>
+          <div class="footer-col">
+            <a data-hov class="footer-link" href="#" rel="noopener">LinkedIn</a>
+            <a data-hov class="footer-link" href="#" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">DEVENTIS</div>
+      <div class="footer-bottom">
+        <span>© 2026 Deventis — Tutti i diritti riservati</span>
+        <span>Privacy · Cookie</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ===================== HEADER (menu in alto a sinistra) ===================== -->
+  <header class="site-header">
+
+    <div data-hov class="logo-pill" data-nav="home">
+      <svg class="logo-img" role="img" aria-label="Deventis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.81983 54.34511">
+  <defs></defs>
+  <g>
+    <path fill="#f5f1ec" d="M268.65853,276.69728q7.81063,7.251,7.809,18.96613,0,11.63565-7.84794,19.005-7.84956,7.37265-20.76021,7.371h-16.494v-52.5932h16.494Q260.8479,269.44629,268.65853,276.69728Zm-28.84823.39905v37.37423h7.97122q9.1635,0,14.57984-5.26224a18.03628,18.03628,0,0,0,5.42121-13.54491q0-8.44813-5.379-13.50923-5.38229-5.05623-14.622-5.05785Z" transform="translate(-231.36541 -268.57034)"></path>
+    <path fill="#f5f1ec" d="M543.90169,277.01523h-17.769v45.02426h-8.44813V277.01523H499.99346l-.00007-7.56266h43.90823Z" transform="translate(-231.36541 -268.57034)"></path>
+    <path fill="#f5f1ec" d="M564.33309,322.03949h-8.44488V269.45257h8.44488Z" transform="translate(-231.36541 -268.57034)"></path>
+    <path fill="#f5f1ec" d="M599.59415,292.71435l-5.89812-2.709a27.4751,27.4751,0,0,1-5.658-3.3481,5.155,5.155,0,0,1-1.67406-4.143,5.43867,5.43867,0,0,1,2.31318-4.73991,9.545,9.545,0,0,1,5.65805-1.63512,12.03721,12.03721,0,0,1,7.27086,2.41659l6.82355-4.28206a19.39276,19.39276,0,0,0-14.09441-5.70346,17.93623,17.93623,0,0,0-11.79624,3.94181,12.7413,12.7413,0,0,0-4.77884,10.32009,11.954,11.954,0,0,0,3.22482,8.526,28.24209,28.24209,0,0,0,9.04508,6.05709l5.817,2.709a25.27151,25.27151,0,0,1,5.937,3.50708,5.5608,5.5608,0,0,1,1.79409,4.383,6.46835,6.46835,0,0,1-2.51108,5.3401,10.268,10.268,0,0,1-6.57293,1.992c-4.381,0-8.245-2.00578-11.65066-5.79674l-6.52386,4.09389a21.9559,21.9559,0,0,0,6.61835,6.24486,22.63629,22.63629,0,0,0,11.634,3.02692q7.65,0,12.63-4.18189a13.70481,13.70481,0,0,0,4.98323-11.03708,12.33348,12.33348,0,0,0-3.108-8.6071A29.38669,29.38669,0,0,0,599.59415,292.71435Z" transform="translate(-231.36541 -268.57034)"></path>
+    <polygon fill="#f5f1ec" points="124.584 28.39 113.196 0.882 103.712 0.882 119.964 38.354 124.584 28.39"></polygon>
+    <path fill="#f5f1ec" d="M323.10919,277.01523H296.96994v13.46705h22.25778v7.33209H296.96994v16.65619h27.09632v7.56893H288.52505v-52.5932h34.58414Z" transform="translate(-231.36541 -268.57034)"></path>
+    <path fill="#f5f1ec" d="M431.33885,277.01523H405.1996v13.46705h22.25778v7.33209H405.1996v16.65619h27.09631v7.56893h-35.5412V269.45257h34.58414Z" transform="translate(-231.36541 -268.57034)"></path>
+    <polygon fill="#f5f1ec" points="256.488 0.882 248.04 0.882 248.04 36.331 216.867 0.882 213.137 0.882 213.137 53.464 221.582 53.464 221.582 17.923 252.839 53.456 256.488 53.456 256.488 0.882"></polygon>
+    <polygon fill="#ff5500" points="153.003 0.882 143.519 0.882 124.095 47.878 126.515 53.456 130.202 53.456 153.003 0.882"></polygon>
+  </g>
+</svg>
+    </div>
+
+    <div id="navPanel" class="nav-panel">
+      <div data-hov id="navBar" class="nav-bar">
+        <span id="navLabel" class="nav-label">Home</span>
+        <button data-hov id="menuBtn" class="menu-btn" aria-label="Apri menu" aria-expanded="false">
+          <span id="iconClosed" class="menu-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12 L6 8 Q6 6 8 6 L12 6"></path><path d="M20 14 L20 18 Q20 20 18 20 L14 20"></path></svg>
+          </span>
+          <span id="iconOpen" class="menu-icon menu-icon-open">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 Q15 13 10 20"></path><path d="M16 6 Q11 13 16 20"></path></svg>
+          </span>
+        </button>
+      </div>
+
+      <div id="navLinks" class="nav-links">
+        <div class="nav-links-inner">
+          <div data-hov class="nav-item" data-nav="home">
+            <span>Home</span>
+            <div class="nav-underline"></div>
+          </div>
+          <div data-hov class="nav-item" data-nav="servizi">
+            <span>Servizi</span>
+            <div class="nav-underline"></div>
+          </div>
+          <div data-hov class="nav-item" data-nav="novaitera">
+            <span>NovaItera</span>
+            <div class="nav-underline"></div>
+          </div>
+          <div data-hov class="nav-item" data-nav="contatti">
+            <span>Contatti</span>
+            <div class="nav-underline"></div>
+          </div>
+          <a data-hov class="nav-write" data-mail="main" href="#">SCRIVICI — CIAO@DEVENTIS.IT</a>
         </div>
       </div>
     </div>
-  </section>
 
-</main>
+  </header>
 
-<footer class="site-footer">
-  <span data-lang="it">© 2026 Deventis Srl</span>
-  <span data-lang="en">© 2026 Deventis Srl</span>
-  <span>Treviso</span>
-</footer>
+  <!-- scorciatoia contatti (in alto a destra) -->
+  <button data-hov class="head-cta" data-nav="contatti"><span>Parliamone</span> </button>
+
+  <!-- ===================== WIPE TRANSITION (onde) ===================== -->
+  <div class="wipe-layer" aria-hidden="true">
+    <canvas id="wipeCanvas" class="wipe-canvas"></canvas>
+    <span id="wipeLabel" class="wipe-label mono"></span>
+  </div>
+
+  <!-- ===================== CURSORE ===================== -->
+  <div id="curDot" class="cursor-dot" aria-hidden="true"></div>
+  <div id="curRing" class="cursor-ring" aria-hidden="true"></div>
+
+</div>
 
 <script>
+/* ============================================================
+   Deventis — interactions
+   Single-page site: canvas wave field, custom cursor, marquee,
+   expandable nav panel, wave wipe route transitions, contact form.
+   Ported from the "Deventis Sito.dc.html" prototype.
+   ============================================================ */
 (function () {
-  document.documentElement.classList.add('js');
+  'use strict';
 
-  /* ── Language toggle (IT/EN), persisted ───────────────────────── */
-  var html = document.documentElement;
-  var STORAGE_KEY = 'deventis.lang';
+  var EMAIL = ['ciao', 'deventis.it'].join('@');
+  var LABELS = { home: 'Home', servizi: 'Servizi', novaitera: 'NovaItera', contatti: 'Contatti' };
+  var WIPE_LABELS = { home: 'HOME', servizi: 'SERVIZI', novaitera: 'NOVAITERA', contatti: 'CONTATTI' };
+  var ROUTES = ['home', 'servizi', 'novaitera', 'contatti'];
 
-  function applyLang(lang) {
-    if (lang !== 'it' && lang !== 'en') lang = 'it';
-    html.setAttribute('lang', lang);
-    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
-    });
-    document.querySelectorAll('[data-ph-it]').forEach(function (el) {
-      el.setAttribute('placeholder', el.getAttribute('data-ph-' + lang));
-    });
-    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
-  }
+  var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
+  var $ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
-  var saved = null;
-  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-  var initial = saved
-    ? saved
-    : ((navigator.language || '').slice(0, 2).toLowerCase() === 'en' ? 'en' : 'it');
-  applyLang(initial);
+  // ---- element handles ----
+  var bgCanvas = $('#bgCanvas');
+  var grainEl = $('#grain');
+  var scrollEl = $('#scroll');
+  var marqueeEl = $('#marquee');
+  var navPanelEl = $('#navPanel');
+  var navLinksEl = $('#navLinks');
+  var navLabelEl = $('#navLabel');
+  var navBarEl = $('#navBar');
+  var menuBtnEl = $('#menuBtn');
+  var iconClosedEl = $('#iconClosed');
+  var iconOpenEl = $('#iconOpen');
+  var wipeCanvasEl = $('#wipeCanvas');
+  var wipeLabelEl = $('#wipeLabel');
+  var curDotEl = $('#curDot');
+  var curRingEl = $('#curRing');
 
-  document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      applyLang(btn.getAttribute('data-set-lang'));
-    });
+  var state = { route: 'home' };
+  // La SPA contiene sezioni .route; eventuali pagine statiche no (fallback: link a index.html#route).
+  var isSPA = !!document.querySelector('.route');
+  var surge = 0;
+  var navBusy = false;
+  var menuOpen = false;
+  var menuBusy = false;
+  var lastWipeAngle = null;
+  var wipeAngle = -0.4;
+  var wipeDir = 1;
+
+  // ---- mailto helpers ----
+  function mailtoMain() { return 'mailto:' + EMAIL; }
+  function mailtoCall() { return 'mailto:' + EMAIL + '?subject=Prenota%20una%20call'; }
+
+  $('[data-mail]').forEach(function (el) {
+    var kind = el.getAttribute('data-mail');
+    el.setAttribute('href', kind === 'call' ? mailtoCall() : mailtoMain());
   });
 
-  /* ── Scroll-driven reveal ─────────────────────────────────────── */
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els = document.querySelectorAll('.rv');
+  // ---- tween helper ----
+  function tween(dur, fn) {
+    return new Promise(function (res) {
+      var t0 = performance.now();
+      var step = function (now) {
+        var p = Math.min(1, (now - t0) / dur);
+        fn(p);
+        if (p < 1) requestAnimationFrame(step); else res();
+      };
+      requestAnimationFrame(step);
+    });
+  }
 
-  if (reduce || !('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('is-in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          io.unobserve(entry.target);
+  function burst() { surge = 1; }
+
+  // ============================================================
+  //  wave field config per route
+  // ============================================================
+  function waveCfg(page) {
+    var cfgs = {
+      home: { rot: -0.42, cy: 0.42, gap: 0.17, amp: 1, speed: 1 },
+      servizi: { rot: 0.34, cy: 0.46, gap: 0.21, amp: 0.78, speed: 0.85 },
+      novaitera: { rot: -0.08, cy: 0.36, gap: 0.26, amp: 0.6, speed: 0.7 },
+      contatti: { rot: -0.7, cy: 0.5, gap: 0.15, amp: 0.9, speed: 0.95 }
+    };
+    return cfgs[page] || cfgs.home;
+  }
+
+  // ============================================================
+  //  menu (expandable nav panel)
+  // ============================================================
+  function swapIcon(open) {
+    if (iconClosedEl) iconClosedEl.style.opacity = open ? '0' : '1';
+    if (iconOpenEl) iconOpenEl.style.opacity = open ? '1' : '0';
+  }
+
+  function toggleMenu() {
+    if (menuBusy) return Promise.resolve();
+    menuBusy = true;
+    var links = navLinksEl;
+    var inner = links ? links.firstElementChild : null;
+    var items = inner ? Array.prototype.slice.call(inner.children) : [];
+
+    if (!menuOpen) {
+      menuOpen = true;
+      if (menuBtnEl) menuBtnEl.setAttribute('aria-expanded', 'true');
+      swapIcon(true);
+      burst();
+      var target = inner ? inner.scrollHeight : 320;
+      return tween(580, function (p) {
+        var e = 1 - Math.pow(1 - p, 4);
+        links.style.height = (target * e) + 'px';
+        links.style.opacity = Math.min(1, p * 1.5);
+        items.forEach(function (l, i) {
+          var lp = Math.max(0, Math.min(1, p * 2 - i * 0.12 - 0.08));
+          var le = 1 - Math.pow(1 - lp, 3);
+          l.style.opacity = le;
+          l.style.transform = 'translateY(' + (16 - 16 * le) + 'px)';
+        });
+      }).then(function () {
+        links.style.height = 'auto';
+        menuBusy = false;
+      });
+    } else {
+      menuOpen = false;
+      if (menuBtnEl) menuBtnEl.setAttribute('aria-expanded', 'false');
+      swapIcon(false);
+      var start = links.offsetHeight;
+      return tween(420, function (p) {
+        var e = Math.pow(p, 1.5);
+        links.style.height = (start * (1 - e)) + 'px';
+        links.style.opacity = Math.max(0, 1 - p * 1.5);
+      }).then(function () {
+        links.style.height = '0px';
+        items.forEach(function (l) { l.style.opacity = '0'; l.style.transform = 'translateY(16px)'; });
+        menuBusy = false;
+      });
+    }
+  }
+
+  // ============================================================
+  //  wipe transition (waves)
+  // ============================================================
+  function sizeWipe() {
+    var cv = wipeCanvasEl;
+    if (!cv) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = cv.clientWidth, h = cv.clientHeight;
+    cv.width = w * dpr; cv.height = h * dpr;
+    var ctx = cv.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    cv._ctx = ctx; cv._w = w; cv._h = h;
+  }
+
+  function drawWipe(progress, mode) {
+    var cv = wipeCanvasEl;
+    if (!cv || !cv._ctx) return;
+    var ctx = cv._ctx, w = cv._w, h = cv._h;
+    ctx.clearRect(0, 0, w, h);
+    var R = Math.hypot(w, h) / 2;
+    var A = wipeAngle == null ? -0.40 : wipeAngle;
+    var dir = wipeDir || 1;
+    var amp = R * 0.085;
+    var span = R * 1.7;
+    var k1 = (Math.PI * 2) / (span * 0.85);
+    var phase = progress * 5.4 * dir + (mode === 'cover' ? 0 : 3.1);
+
+    var ease = mode === 'cover' ? 1 - Math.pow(1 - progress, 3) : Math.pow(progress, 2.1);
+    var front = dir * (mode === 'cover' ? (1.5 * R - ease * 3.0 * R) : (-1.5 * R + ease * 3.1 * R));
+
+    var waveAt = function (x) {
+      return Math.sin(x * k1 + phase) * amp + Math.sin(x * k1 * 0.5 - phase * 0.7) * amp * 0.5;
+    };
+    var farEdge = dir * 1.9 * R;
+
+    ctx.save();
+    ctx.translate(w / 2, h / 2);
+    ctx.rotate(A);
+
+    ctx.beginPath();
+    ctx.moveTo(-span, farEdge);
+    for (var x = -span; x <= span; x += 16) ctx.lineTo(x, front + waveAt(x));
+    ctx.lineTo(span, farEdge);
+    ctx.closePath();
+    ctx.fillStyle = '#0b0b0b';
+    ctx.fill();
+
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    var gap = amp * 2.3;
+    for (var b = 0; b < 4; b++) {
+      var lead = b === 0;
+      ctx.strokeStyle = lead ? 'rgba(255,176,128,0.95)' : 'rgba(255,86,8,' + (0.5 - b * 0.1).toFixed(2) + ')';
+      ctx.lineWidth = R * (0.013 - b * 0.0022);
+      ctx.shadowColor = 'rgba(255,90,0,0.85)';
+      ctx.shadowBlur = lead ? 30 : 16;
+      ctx.beginPath();
+      for (var x2 = -span; x2 <= span; x2 += 16) {
+        var y = front + dir * b * gap + waveAt(x2);
+        if (x2 <= -span + 1) ctx.moveTo(x2, y); else ctx.lineTo(x2, y);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // ============================================================
+  //  routing
+  // ============================================================
+  function showRoute(page) {
+    $('.route').forEach(function (el) {
+      el.hidden = el.getAttribute('data-route') !== page;
+    });
+    navLabelEl.textContent = LABELS[page] || 'Home';
+    $('.nav-item').forEach(function (el) {
+      el.classList.toggle('is-active', el.getAttribute('data-nav') === page);
+    });
+  }
+
+  function navigate(page) {
+    if (navBusy) return;
+    if (ROUTES.indexOf(page) === -1) page = 'home';
+    // su pagine statiche non c'è la SPA: rimanda alla home con l'ancora di route
+    if (!isSPA) { window.location.href = 'index.html#' + page; return; }
+    if (page === state.route) { if (menuOpen) toggleMenu(); return; }
+    navBusy = true;
+
+    if (wipeLabelEl) wipeLabelEl.textContent = '— ' + (WIPE_LABELS[page] || '') + ' —';
+    if (menuOpen) toggleMenu();
+
+    var angles = [-1.45, -0.95, -0.4, 0.0, 0.4, 0.95, 1.45];
+    var a;
+    do { a = angles[Math.floor(Math.random() * angles.length)]; } while (a === lastWipeAngle && angles.length > 1);
+    lastWipeAngle = a;
+    wipeAngle = a;
+    wipeDir = Math.random() < 0.5 ? 1 : -1;
+    burst();
+    sizeWipe();
+
+    tween(640, function (p) {
+      drawWipe(p, 'cover');
+      if (wipeLabelEl) wipeLabelEl.style.opacity = Math.min(1, p * 2.2);
+    }).then(function () {
+      state.route = page;
+      showRoute(page);
+      try { history.replaceState(null, '', '#' + page); } catch (e) {}
+      if (scrollEl) { scrollEl.scrollTop = 0; scrollEl.style.opacity = '0'; }
+      return new Promise(function (r) { setTimeout(r, 150); });
+    }).then(function () {
+      burst();
+      return tween(700, function (p) {
+        drawWipe(p, 'reveal');
+        if (wipeLabelEl) wipeLabelEl.style.opacity = Math.max(0, 1 - p * 2.6);
+        if (scrollEl) {
+          scrollEl.style.opacity = Math.min(1, p * 1.6);
+          scrollEl.style.transform = 'translateY(' + (26 - 26 * Math.min(1, p * 1.3)) + 'px)';
         }
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
-    els.forEach(function (el) { io.observe(el); });
+    }).then(function () {
+      if (wipeCanvasEl && wipeCanvasEl._ctx) wipeCanvasEl._ctx.clearRect(0, 0, wipeCanvasEl._w, wipeCanvasEl._h);
+      if (scrollEl) { scrollEl.style.opacity = '1'; scrollEl.style.transform = 'none'; }
+      navBusy = false;
+      updateChips();
+    });
   }
+
+  // ============================================================
+  //  contact form
+  // ============================================================
+  var formEl = $('#contactForm');
+
+  // Lo stato selezionato delle chip è gestito dal CSS (.choice input:checked + span).
+  function updateChips() {}
+
+  function onSubmitForm(e) {
+    e.preventDefault();
+    var fd = new FormData(formEl);
+    var servizi = fd.getAll('servizi').join(', ');
+    var body = 'Ciao Deventis!%0A%0AInteressi: ' + encodeURIComponent(servizi || '—') +
+      '%0ABudget: ' + encodeURIComponent(fd.get('budget') || '—') +
+      '%0ANome: ' + encodeURIComponent(fd.get('nome') || '') +
+      '%0AAzienda: ' + encodeURIComponent(fd.get('azienda') || '') +
+      '%0AEmail: ' + encodeURIComponent(fd.get('email') || '') +
+      '%0A%0A' + encodeURIComponent(fd.get('messaggio') || '');
+    window.location.href = 'mailto:' + EMAIL +
+      '?subject=' + encodeURIComponent('Progetto — ' + (fd.get('nome') || 'nuovo contatto')) +
+      '&body=' + body;
+  }
+
+  if (formEl) {
+    formEl.addEventListener('change', updateChips);
+    formEl.addEventListener('submit', onSubmitForm);
+  }
+
+  // ============================================================
+  //  wire navigation + menu
+  // ============================================================
+  $('[data-nav]').forEach(function (el) {
+    el.addEventListener('click', function () { navigate(el.getAttribute('data-nav')); });
+  });
+  if (navBarEl) navBarEl.addEventListener('click', function (e) {
+    if (e.target.closest('[data-nav]')) return;
+    toggleMenu();
+  });
+
+  // open from hash on load (solo SPA)
+  if (isSPA) {
+    var h = (location.hash || '').replace('#', '');
+    if (h && ROUTES.indexOf(h) !== -1 && h !== 'home') {
+      state.route = h;
+      showRoute(h);
+    } else {
+      showRoute('home');
+    }
+  }
+
+  // ============================================================
+  //  background wave engine + cursor + marquee
+  // ============================================================
+  function startEngine() {
+    var c = bgCanvas, ctx = c.getContext('2d');
+    var w = 0, h = 0;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var off = document.createElement('canvas');
+    var octx = off.getContext('2d');
+
+    function resize() {
+      w = c.clientWidth; h = c.clientHeight;
+      c.width = w * dpr; c.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      off.width = Math.max(2, Math.round(w * 0.22));
+      off.height = Math.max(2, Math.round(h * 0.22));
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+    }
+    resize();
+
+    // film grain (generated once)
+    var gr = document.createElement('canvas'); gr.width = gr.height = 160;
+    var gctx = gr.getContext('2d');
+    var gid = gctx.createImageData(160, 160);
+    for (var i = 0; i < gid.data.length; i += 4) {
+      var v = (105 + Math.random() * 100) | 0;
+      gid.data[i] = v; gid.data[i + 1] = v; gid.data[i + 2] = v; gid.data[i + 3] = 255;
+    }
+    gctx.putImageData(gid, 0, 0);
+    if (grainEl) grainEl.style.backgroundImage = 'url(' + gr.toDataURL() + ')';
+    window.addEventListener('resize', resize);
+
+    var mouse = { x: 0.5, y: 0.5, sx: 0.5, sy: 0.5, px: -999, py: -999 };
+    var ringX = null, ringY = null, hovOn = false;
+
+    function onMove(e) {
+      mouse.x = e.clientX / w; mouse.y = e.clientY / h;
+      mouse.px = e.clientX; mouse.py = e.clientY;
+      if (curDotEl) curDotEl.style.transform = 'translate(' + (e.clientX - 3.5) + 'px,' + (e.clientY - 3.5) + 'px)';
+      if (ringX == null) ringX = e.clientX;
+      if (ringY == null) ringY = e.clientY;
+    }
+    window.addEventListener('pointermove', onMove);
+
+    function onOver(e) {
+      var hov = e.target.closest && e.target.closest('[data-hov]');
+      hovOn = !!hov;
+    }
+    document.addEventListener('pointerover', onOver);
+
+    var cfg = Object.assign({}, waveCfg('home'));
+    var t = 0;
+    var mx = 0;
+
+    function loop() {
+      requestAnimationFrame(loop);
+      t += 0.011;
+      mouse.sx += (mouse.x - mouse.sx) * 0.04;
+      mouse.sy += (mouse.y - mouse.sy) * 0.04;
+
+      // cursor ring
+      if (curRingEl && mouse.px > -500) {
+        ringX += (mouse.px - ringX) * 0.16;
+        ringY += (mouse.py - ringY) * 0.16;
+        var rsc = hovOn ? 1.8 : 1;
+        curRingEl.style.transform = 'translate(' + (ringX - 17) + 'px,' + (ringY - 17) + 'px) scale(' + rsc + ')';
+        curRingEl.style.borderColor = hovOn ? '#ff5500' : 'rgba(255,85,0,0.55)';
+      }
+
+      // marquee
+      if (marqueeEl) {
+        mx -= 0.7;
+        var half = marqueeEl.scrollWidth / 2;
+        if (-mx >= half) mx += half;
+        marqueeEl.style.transform = 'translateX(' + mx + 'px)';
+      }
+
+      var scrollTop = scrollEl ? scrollEl.scrollTop : 0;
+      var fade = Math.max(0.3, 1 - scrollTop / (h * 1.8));
+      var sc = scrollTop / h;
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.globalAlpha = fade;
+
+      var tg = waveCfg(state.route);
+      cfg.rot += (tg.rot - cfg.rot) * 0.03;
+      cfg.cy += (tg.cy - cfg.cy) * 0.03;
+      cfg.gap += (tg.gap - cfg.gap) * 0.03;
+      cfg.amp += (tg.amp - cfg.amp) * 0.03;
+      cfg.speed += (tg.speed - cfg.speed) * 0.03;
+      surge *= 0.965;
+
+      var ox0 = w * 0.5;
+      var oy0 = h * cfg.cy - scrollTop * 0.2;
+
+      var OS = 0.22;
+      octx.clearRect(0, 0, off.width, off.height);
+      octx.save();
+      octx.scale(OS, OS);
+      octx.translate(ox0, oy0);
+      octx.rotate(cfg.rot + sc * 0.22);
+      octx.globalCompositeOperation = 'lighter';
+      octx.lineCap = 'round';
+      var span = Math.max(w, h) * 2.4;
+      var m = Math.min(w, h);
+      var bandW = m * 1.9 * cfg.gap * (1 + sc * 0.2);
+      var nb = 4, steps = 26;
+      for (var k = 0; k < nb; k++) {
+        var baseY = (k - (nb - 1) / 2) * bandW * 1.55;
+        var amp = (95 + k * 22) * cfg.amp * (1 + surge * 1.1) * (1 + sc * 0.3);
+        var phk = t * (0.3 + k * 0.045) * cfg.speed * (1 + surge * 1.6) + k * 1.7 + scrollTop * 0.0016;
+        for (var j = 0; j < steps; j++) {
+          var tj = j / (steps - 1);
+          var offY = (tj - 0.5) * bandW;
+          var g = Math.exp(-((tj - 0.76) * (tj - 0.76)) / 0.011);
+          var body = Math.pow(Math.sin(Math.PI * tj), 1.3);
+          var rC = Math.round(120 + body * 110 + g * 25);
+          var gC = Math.round(28 + body * 50 + g * 60);
+          var bC = Math.round(4 + body * 8 + g * 30);
+          var a = (body * 0.16 + g * 0.3) * (1 + surge * 0.5);
+          octx.strokeStyle = 'rgba(' + rC + ',' + gC + ',' + bC + ',' + a.toFixed(3) + ')';
+          octx.lineWidth = (bandW / steps) * 1.9;
+          octx.beginPath();
+          for (var x = -span * 0.5; x <= span * 0.5; x += 60) {
+            var ph = x * 0.0011 + phk;
+            var xr = x / (span * 0.5);
+            var y = baseY + offY + Math.sin(ph) * amp + Math.sin(ph * 0.47 + t * 0.18) * amp * 0.6 + xr * xr * m * 0.22;
+            if (x <= -span * 0.5 + 1) octx.moveTo(x, y); else octx.lineTo(x, y);
+          }
+          octx.stroke();
+        }
+      }
+      octx.restore();
+      ctx.drawImage(off, 0, 0, w, h);
+      ctx.globalAlpha = 1;
+    }
+    loop();
+  }
+
+  if (bgCanvas && bgCanvas.getContext) startEngine();
+
 })();
 </script>
-
 </body>
 </html>
