@@ -1457,7 +1457,7 @@ textarea.field { resize: vertical; }
   var ROUTES = ['home', 'servizi', 'novaitera', 'contatti'];
 
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
-  var $ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
+  var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
   // ---- element handles ----
   var bgCanvas = $('#bgCanvas');
@@ -1491,7 +1491,7 @@ textarea.field { resize: vertical; }
   function mailtoMain() { return 'mailto:' + EMAIL; }
   function mailtoCall() { return 'mailto:' + EMAIL + '?subject=Prenota%20una%20call'; }
 
-  $('[data-mail]').forEach(function (el) {
+  $$('[data-mail]').forEach(function (el) {
     var kind = el.getAttribute('data-mail');
     el.setAttribute('href', kind === 'call' ? mailtoCall() : mailtoMain());
   });
@@ -1648,11 +1648,11 @@ textarea.field { resize: vertical; }
   //  routing
   // ============================================================
   function showRoute(page) {
-    $('.route').forEach(function (el) {
+    $$('.route').forEach(function (el) {
       el.hidden = el.getAttribute('data-route') !== page;
     });
     navLabelEl.textContent = LABELS[page] || 'Home';
-    $('.nav-item').forEach(function (el) {
+    $$('.nav-item').forEach(function (el) {
       el.classList.toggle('is-active', el.getAttribute('data-nav') === page);
     });
   }
@@ -1735,7 +1735,7 @@ textarea.field { resize: vertical; }
   // ============================================================
   //  wire navigation + menu
   // ============================================================
-  $('[data-nav]').forEach(function (el) {
+  $$('[data-nav]').forEach(function (el) {
     el.addEventListener('click', function () { navigate(el.getAttribute('data-nav')); });
   });
   if (navBarEl) navBarEl.addEventListener('click', function (e) {
